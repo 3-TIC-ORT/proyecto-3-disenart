@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro e Inicio de Sesión</title>
+</head>
+<body>
+    <h2>Registro</h2>
+    <input type="text" id="registerUsername" placeholder="Usuario">
+    <input type="password" id="registerPassword" placeholder="Contraseña">
+    <button id="registerButton">Registrarse</button>
+
+    <h2>Inicio de Sesión</h2>
+    <input type="text" id="loginUsername" placeholder="Usuario">
+    <input type="password" id="loginPassword" placeholder="Contraseña">
+    <button id="loginButton">Iniciar Sesión</button>
+
+    <h2>Diseños</h2>
+    <label for="nombreTrabajo">Nombre del trabajo:</label>
+    <input type="text" id="nombreTrabajo" placeholder="Nombre del trabajo">
+
+    <label for="colorSelect">Color:</label>
+    <select id="colorSelect">
+        <option value="rojo">Rojo</option>
+        <option value="azul">Azul</option>
+        <option value="verde">Verde</option>
+    </select>
+
+    <label for="talleSelect">Talle:</label>
+    <select id="talleSelect">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+
+    <label for="materialSelect">Material:</label>
+    <select id="materialSelect">
+        <option value="algodon">Algodón</option>
+        <option value="poliester">Poliéster</option>
+        <option value="seda">Seda</option>
+    </select>
+
+    <button id="saveDesignButton">Guardar Diseño</button>
+    <button id="loadDesignsButton">Ver Diseños</button> 
+    <button id="clearDesignsButton">Borrar Diseños</button>
+    <button id="printDesignButton">Mandar a Imprimir</button>
+
+
+    <br><br>
+    <h1>Diseños creados hasta ahora</h1> 
+    <ul id="designList"></ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
+    <script src="socket.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
