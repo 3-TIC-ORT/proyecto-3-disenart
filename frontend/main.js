@@ -12,6 +12,8 @@ const materialSelect = document.getElementById("materialSelect");
 const nombreTrabajo = document.getElementById("nombreTrabajo");
 const designList = document.getElementById("designList");
 const clearDesignsButton = document.getElementById("clearDesignsButton");
+const selectColor = document.getElementById('colorSelect');
+const imagenColor = document.getElementById('buzoImage');
 
 let loggedInUser = null;
 
@@ -90,8 +92,6 @@ loadDesignsButton.addEventListener("click", () => {
                         li.remove();
                     }
                 });
-
-
                 designList.appendChild(li);
             });
         } else {
@@ -138,4 +138,26 @@ printDesignButton.addEventListener("click", () => {
     }
 });
 
+selectColor.addEventListener('change', function() {
+    const selectedColor = selectColor.value;
 
+    if (selectedColor === "negro") {
+        imagenColor.src = "../imagenes/buzonegro.png";
+        imagenColor.style.display = "block";
+    } else if (selectedColor === "violeta") {
+        imagenColor.src = "../imagenes/buzovioleta.png";
+        imagenColor.style.display = "block";
+    } else if (selectedColor === "azul") {
+        imagenColor.src = "../imagenes/buzoazul.png";
+        imagenColor.style.display = "block";
+    } else if (selectedColor === "blanco") {
+        imagenColor.src = "../imagenes/buzoblanco.png";
+        imagenColor.style.display = "block";
+    } else if (selectedColor === "rojo") {
+        imagenColor.src = "../imagenes/buzorojo.png";
+        imagenColor.style.display = "block";
+    } else {
+        imagenColor.src = "";
+        imagenColor.style.display = "none"; 
+    }
+});
