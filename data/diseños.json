@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "username": "maxi",
+    "color": "negro",
+    "talle": "M",
+    "material": "algodon",
+    "nombret": "tp4"
+  }
+]

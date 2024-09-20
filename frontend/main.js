@@ -5,7 +5,7 @@ const registerPasswordInput = document.getElementById("registerPassword");
 const loginUsernameInput = document.getElementById("loginUsername");
 const loginPasswordInput = document.getElementById("loginPassword");
 const saveDesignButton = document.getElementById("saveDesignButton");
-const loadDesignsButton = document.getElementById("loadDesignsButton"); 
+const loadDesignsButton = document.getElementById("loadDesignsButton");
 const colorSelect = document.getElementById("colorSelect");
 const talleSelect = document.getElementById("talleSelect");
 const materialSelect = document.getElementById("materialSelect");
@@ -41,7 +41,7 @@ loginButton.addEventListener("click", () => {
     if (username && password) {
         postData('login', { username, password }, (response) => {
             if (response.ok) {
-                alert("exitos");
+                alert("Login exitoso");
                 loggedInUser = username;
             } else {
                 alert(response.message);
@@ -52,18 +52,27 @@ loginButton.addEventListener("click", () => {
     }
 });
 
+const colorToImageMap = {
+    negro: "../imagenes/buzonegro.png",
+    violeta: "../imagenes/buzovioleta.png",
+    azul: "../imagenes/buzoazul.png",
+    blanco: "../imagenes/buzoblanco.png",
+    rojo: "../imagenes/buzorojo.png"
+};
+
 saveDesignButton.addEventListener("click", () => {
     const color = colorSelect.value;
     const talle = talleSelect.value;
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
+    const imageUrl = colorToImageMap[color] || "";  
 
     if (loggedInUser) {
-        postData('guardarDiseno', { username: loggedInUser, color, talle, material, nombretp }, (response) => {
+        postData('guardarDiseno', { username: loggedInUser, color, talle, material, nombretp, imageUrl }, (response) => {
             if (response.ok) {
-                alert("Diseño guardado");
+                alert("Diseño guardado con éxito");
             } else {
-                alert("Error al guardar");
+                alert("Error al guardar el diseño");
             }
         });
     } else {
@@ -79,19 +88,37 @@ loadDesignsButton.addEventListener("click", () => {
             response.diseños.forEach(diseño => {
                 const li = document.createElement("li");
                 li.textContent = diseño.nombret;
+
                 li.addEventListener("click", () => {
                     colorSelect.value = diseño.color;
                     talleSelect.value = diseño.talle;
                     materialSelect.value = diseño.material;
-                    nombreTrabajo.value = "version de:";
+                    nombreTrabajo.value = "Versión de: ";
+
+                    const imageUrl = colorToImageMap[diseño.color];
+                    if (imageUrl) {
+                        imagenColor.src = imageUrl;
+                        imagenColor.style.display = "block";  
+                    } else {
+                        imagenColor.src = "";
+                        imagenColor.style.display = "none";  
+                    }
                 });
+
                 li.addEventListener("dblclick", () => {
                     const confirmation = confirm("¿Deseas borrar este diseño?");
                     if (confirmation) {
-                        console.log("Diseño borrado:", diseño);
-                        li.remove();
+                        postData('borrarDiseno', { username: loggedInUser, nombretp: diseño.nombret }, (response) => {
+                            if (response.ok) {
+                                alert("Diseño borrado");
+                                li.remove();
+                            } else {
+                                alert("Error al borrar el diseño");
+                            }
+                        });
                     }
                 });
+
                 designList.appendChild(li);
             });
         } else {
@@ -100,20 +127,17 @@ loadDesignsButton.addEventListener("click", () => {
     });
 });
 
-
 clearDesignsButton.addEventListener("click", () => {
     const confirmation = confirm("¿Estás seguro de que deseas borrar todos los diseños?");
     if (confirmation) {
         postData('borrarDisenos', {}, (response) => {
             if (response.ok) {
                 alert("Diseños borrados");
-                cargarDisenos();
+                loadDesignsButton.click();  
             } else {
                 alert("No se pudo borrar los diseños");
             }
         });
-    } else {
-        alert("casi borras todo");
     }
 });
 
@@ -124,9 +148,10 @@ printDesignButton.addEventListener("click", () => {
     const talle = talleSelect.value;
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
+    const imageUrl = colorToImageMap[color] || "";  
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp }, (response) => {
+        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
@@ -141,20 +166,8 @@ printDesignButton.addEventListener("click", () => {
 selectColor.addEventListener('change', function() {
     const selectedColor = selectColor.value;
 
-    if (selectedColor === "negro") {
-        imagenColor.src = "../imagenes/buzonegro.png";
-        imagenColor.style.display = "block";
-    } else if (selectedColor === "violeta") {
-        imagenColor.src = "../imagenes/buzovioleta.png";
-        imagenColor.style.display = "block";
-    } else if (selectedColor === "azul") {
-        imagenColor.src = "../imagenes/buzoazul.png";
-        imagenColor.style.display = "block";
-    } else if (selectedColor === "blanco") {
-        imagenColor.src = "../imagenes/buzoblanco.png";
-        imagenColor.style.display = "block";
-    } else if (selectedColor === "rojo") {
-        imagenColor.src = "../imagenes/buzorojo.png";
+    if (colorToImageMap[selectedColor]) {
+        imagenColor.src = colorToImageMap[selectedColor];
         imagenColor.style.display = "block";
     } else {
         imagenColor.src = "";
