@@ -15,6 +15,10 @@ const clearDesignsButton = document.getElementById("clearDesignsButton");
 const selectColor = document.getElementById('colorSelect');
 const imagenColor = document.getElementById('buzoImage');
 const uploadImageInput = document.getElementById('uploadImage');
+const addNameButton = document.getElementById("addNameButton");
+const nombrePersonaInput = document.getElementById("nombrePersona");
+const nameOverlay = document.getElementById("nameOverlay");
+const positionSelect = document.getElementById("positionSelect");
 
 let loggedInUser = null;
 
@@ -67,9 +71,21 @@ saveDesignButton.addEventListener("click", () => {
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
     const imageUrl = colorToImageMap[color] || "";  
+    const nombrePersona = nombrePersonaInput.value;  
+    const positionOption = positionSelect.value;  
 
     if (loggedInUser) {
-        postData('guardarDiseno', { username: loggedInUser, color, talle, material, nombretp, imageUrl }, (response) => {
+        
+        postData('guardarDiseno', { 
+            username: loggedInUser, 
+            color, 
+            talle, 
+            material, 
+            nombretp, 
+            imageUrl, 
+            nombrePersona, 
+            positionOption   
+        }, (response) => {
             if (response.ok) {
                 alert("Diseño guardado con éxito");
             } else {
@@ -80,6 +96,7 @@ saveDesignButton.addEventListener("click", () => {
         alert("Debes iniciar sesión.");
     }
 });
+
 
 
 loadDesignsButton.addEventListener("click", () => {
@@ -202,4 +219,31 @@ uploadImageInput.addEventListener('change', function() {
 
         reader.readAsDataURL(file); 
     }
+});
+
+
+addNameButton.addEventListener("click", () => {
+    const nombrePersona = nombrePersonaInput.value;
+
+    if (nombrePersona && buzoImage.style.display === "block") {
+        nameOverlay.textContent = nombrePersona;
+        nameOverlay.style.display = "block"; 
+    } else {
+        alert("Por favor, ingresa un nombre y selecciona un color para el buzo.");
+    }
+});
+
+let nameTopPosition = 350;
+
+positionSelect.addEventListener("change", () => {
+    const selectedOption = positionSelect.value;
+
+    if (selectedOption === "subir") {
+        nameTopPosition -= 100; 
+    } else if (selectedOption === "bajar") {
+        nameTopPosition += 100; 
+    }
+
+    
+    nameOverlay.style.top = `${nameTopPosition}px`;
 });

@@ -18,16 +18,19 @@
     
     <h2>Diseños</h2>
     <img id="buzoImage" src="" alt="Imagen del buzo" style="display:none; width: 500px; height: 300px;">
+    <div id="nameOverlay" style="position: absolute; top: 350px; left: 27%; transform: translateX(-50%); font-size: 24px; font-weight: bold;"></div>
+    
+    <label for="nombrePersona">Nombre de la persona:</label>
+    <input type="text" id="nombrePersona" placeholder="Nombre">
+    <button id="addNameButton">Agregar Nombre</button>
+
+    <select id="positionSelect">
+        <option value="subir">atras arriba</option>
+        <option value="bajar">atras abajo</option>
+    </select>
+
     <label for="nombreTrabajo">Nombre del trabajo:</label>
     <input type="text" id="nombreTrabajo" placeholder="Nombre del trabajo">
-
-    <label for="nombrePersona">Nombre de la persona:</label>
-    <input type="text" id="nombrePersona" placeholder="Nombre"> 
-    <select id="formatoSelect">
-        <option value="diagonal">atras arriva</option>
-        <option value="medio">atras abajo</option>
-    </select>
-    
 
     <label for="colorSelect">Color:</label>
     <select id="colorSelect">
@@ -50,7 +53,7 @@
         <option value="diagonal">linea diagonal</option>
         <option value="medio">linea al medio</option>
     </select>
-
+<br>
     <label for="colorlSelect">Color de linea:</label>
     <select id="colorSelect">
         <option value="blancol">blanco</option>
@@ -76,10 +79,10 @@
     <label for="uploadImage">Adjuntar imagen personalizada:</label>
     <input type="file" id="uploadImage" accept="image/*">
 
-
     <br><br>
     <h1>Diseños creados hasta ahora</h1> 
     <ul id="designList"></ul>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
     <script src="socket.js"></script>
     <script type="module" src="main.js"></script>
