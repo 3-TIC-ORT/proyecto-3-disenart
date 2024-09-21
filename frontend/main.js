@@ -19,6 +19,7 @@ const addNameButton = document.getElementById("addNameButton");
 const nombrePersonaInput = document.getElementById("nombrePersona");
 const nameOverlay = document.getElementById("nameOverlay");
 const positionSelect = document.getElementById("positionSelect");
+const colorLetraSelect = document.getElementById("colorLetraSelect");
 
 let loggedInUser = null;
 
@@ -72,7 +73,8 @@ saveDesignButton.addEventListener("click", () => {
     const nombretp = nombreTrabajo.value;
     const imageUrl = colorToImageMap[color] || "";  
     const nombrePersona = nombrePersonaInput.value;  
-    const positionOption = positionSelect.value;  
+    const positionOption = positionSelect.value;
+    const selectedColor = colorLetraSelect.value  
 
     if (loggedInUser) {
         
@@ -84,7 +86,8 @@ saveDesignButton.addEventListener("click", () => {
             nombretp, 
             imageUrl, 
             nombrePersona, 
-            positionOption   
+            positionOption,
+            selectedColor   
         }, (response) => {
             if (response.ok) {
                 alert("Diseño guardado con éxito");
@@ -109,11 +112,8 @@ loadDesignsButton.addEventListener("click", () => {
 
                 li.addEventListener("click", () => {
                     colorSelect.value = diseño.color;
-                    talleSelect.value = diseño.talle;
                     materialSelect.value = diseño.material;
                     nombreTrabajo.value = "Versión de: ";
-                    positionSelect.value = diseño.positionOption
-                    nombrePersona.value = diseño.nombrePersonaInput
 
 
                     const imageUrl = colorToImageMap[diseño.color];
@@ -172,9 +172,10 @@ printDesignButton.addEventListener("click", () => {
     const imageUrl = colorToImageMap[color] || "";  
     const nombrePersona = nombrePersonaInput.value;  
     const positionOption = positionSelect.value; 
+    const selectedColor = colorLetraSelect.value;
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption  }, (response) => {
+        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
@@ -229,26 +230,34 @@ uploadImageInput.addEventListener('change', function() {
 
 addNameButton.addEventListener("click", () => {
     const nombrePersona = nombrePersonaInput.value;
+    const selectedColor = colorLetraSelect.value; 
 
     if (nombrePersona && buzoImage.style.display === "block") {
         nameOverlay.textContent = nombrePersona;
-        nameOverlay.style.display = "block"; 
+        nameOverlay.style.display = "block";
+        nameOverlay.style.color = selectedColor; 
     } else {
-        alert(" ingresa un nombre y selecciona color.");
+        alert("Por favor, ingresa un nombre y selecciona un color para el buzo.");
     }
 });
+
 
 let nameTopPosition = 350;
 
 positionSelect.addEventListener("change", () => {
     const selectedOption = positionSelect.value;
 
-    if (selectedOption === "subir") {
+    if (selectedOption === "arriba") {
         nameTopPosition -= 100; 
-    } else if (selectedOption === "bajar") {
+    } else if (selectedOption === "abajo") {
         nameTopPosition += 100; 
     }
 
     
     nameOverlay.style.top = `${nameTopPosition}px`;
+});
+
+colorLetraSelect.addEventListener("change", () => {
+    const selectedColor = colorLetraSelect.value; 
+    nameOverlay.style.color = selectedColor; 
 });
