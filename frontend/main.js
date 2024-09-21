@@ -112,6 +112,9 @@ loadDesignsButton.addEventListener("click", () => {
                     talleSelect.value = diseño.talle;
                     materialSelect.value = diseño.material;
                     nombreTrabajo.value = "Versión de: ";
+                    positionSelect.value = diseño.positionOption
+                    nombrePersona.value = diseño.nombrePersonaInput
+
 
                     const imageUrl = colorToImageMap[diseño.color];
                     if (imageUrl) {
@@ -167,9 +170,11 @@ printDesignButton.addEventListener("click", () => {
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
     const imageUrl = colorToImageMap[color] || "";  
+    const nombrePersona = nombrePersonaInput.value;  
+    const positionOption = positionSelect.value; 
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl }, (response) => {
+        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption  }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
@@ -229,7 +234,7 @@ addNameButton.addEventListener("click", () => {
         nameOverlay.textContent = nombrePersona;
         nameOverlay.style.display = "block"; 
     } else {
-        alert("Por favor, ingresa un nombre y selecciona un color para el buzo.");
+        alert(" ingresa un nombre y selecciona color.");
     }
 });
 
