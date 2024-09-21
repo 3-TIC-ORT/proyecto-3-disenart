@@ -114,7 +114,9 @@ loadDesignsButton.addEventListener("click", () => {
                     colorSelect.value = diseño.color;
                     materialSelect.value = diseño.material;
                     nombreTrabajo.value = "Versión de: ";
-
+                    nombrePersonaInput.value = "pone tu nombre: "
+                    positionSelect.value = diseño.lugarn;
+                    colorLetraSelect.value = diseño.colorn;
 
                     const imageUrl = colorToImageMap[diseño.color];
                     if (imageUrl) {
@@ -248,9 +250,9 @@ positionSelect.addEventListener("change", () => {
     const selectedOption = positionSelect.value;
 
     if (selectedOption === "arriba") {
-        nameTopPosition -= 100; 
+        nameTopPosition = 350; 
     } else if (selectedOption === "abajo") {
-        nameTopPosition += 100; 
+        nameTopPosition = 450; 
     }
 
     
