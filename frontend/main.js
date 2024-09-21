@@ -14,6 +14,7 @@ const designList = document.getElementById("designList");
 const clearDesignsButton = document.getElementById("clearDesignsButton");
 const selectColor = document.getElementById('colorSelect');
 const imagenColor = document.getElementById('buzoImage');
+const uploadImageInput = document.getElementById('uploadImage');
 
 let loggedInUser = null;
 
@@ -172,5 +173,33 @@ selectColor.addEventListener('change', function() {
     } else {
         imagenColor.src = "";
         imagenColor.style.display = "none"; 
+    }
+});
+
+
+uploadImageInput.addEventListener('change', function() {
+    const file = uploadImageInput.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onloadend = function() {
+            const base64Image = reader.result;
+            const fileName = file.name; 
+
+            if (loggedInUser) {
+                postData('uploadImage', { username: loggedInUser, image: base64Image, fileName: fileName }, (response) => {
+                    if (response.ok) {
+                        alert("Imagen subida exitosamente");
+                    } else {
+                        alert("Error al subir la imagen");
+                    }
+                });
+            } else {
+                alert("Debes iniciar sesión para subir imágenes.");
+            }
+        };
+
+        reader.readAsDataURL(file); 
     }
 });

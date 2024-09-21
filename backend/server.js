@@ -7,6 +7,7 @@ onEvent('guardarDiseno', guardarDiseno);
 onEvent('obtenerDisenos', enviarDisenos);
 onEvent('borrarDisenos', borrarDisenos);
 onEvent('mandarAImprimir', mandarAImprimir);
+onEvent('uploadImage', subirImagen);
 
 function enviarRegistro(data) {
     let usuarios = JSON.parse(fs.readFileSync('../data/usuarios.json', 'utf-8'));
@@ -74,6 +75,24 @@ function mandarAImprimir(data) {
     fs.writeFileSync('../data/imprimir.json', JSON.stringify(diseñoParaImprimir, null, 2));
     console.log("Diseño enviado a imprimir");
     return { ok: true, message: "Diseño enviado a imprimir" };
+}
+
+function subirImagen(data) {
+    const { username, image, fileName } = data;
+
+    if (!image || !username || !fileName) {
+        console.log("Faltan datos");
+        return { ok: false, message: "Datos incompletos" };
+    }
+
+    
+    const base64Data = image.replace(/^data:image\/\w+;base64,/, ""); 
+    const nombrei = `../imgfin/${fileName}`; 
+
+    
+    fs.writeFileSync(nombrei, base64Data, 'base64');
+    console.log(`Imagen subida por ${username} guardada en ${nombrei}`);
+    return { ok: true, message: "Imagen guardada", fileName };
 }
 
 startServer();
