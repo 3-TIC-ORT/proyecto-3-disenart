@@ -21,6 +21,10 @@ const nameOverlay = document.getElementById("nameOverlay");
 const positionSelect = document.getElementById("positionSelect");
 const colorLetraSelect = document.getElementById("colorLetraSelect");
 const uploadImageButton = document.getElementById("uploadImagebutton");
+const formatoSelect = document.getElementById("formatoSelect");
+const agregarFormatoButton = document.getElementById("agregarFormatoButton");
+const colorLineaSelect = document.getElementById("colorLineaSelect");
+const aplicarColorButton = document.getElementById("aplicarColorButton");
 
 let loggedInUser = null;
 
@@ -271,4 +275,79 @@ positionSelect.addEventListener("change", () => {
 colorLetraSelect.addEventListener("change", () => {
     const selectedColor = colorLetraSelect.value; 
     nameOverlay.style.color = selectedColor; 
+});
+
+
+
+let recBlanco1, recBlanco2;
+
+
+const colorMap = {
+    blancol: "../formato/recblanco.png",
+    negrol: "../formato/recnegro.png",
+    azull: "../formato/recceleste.png",
+    violetal: "../formato/recvioleta.png",
+    rojol: "../formato/recrojo.png",
+    grisl: "../formato/recgris.png"
+};
+
+agregarFormatoButton.addEventListener("click", () => {
+    const selectedFormato = formatoSelect.value;
+
+    
+    if (recBlanco1) recBlanco1.remove();
+    if (recBlanco2) recBlanco2.remove();
+
+    
+    if (selectedFormato === "medio") {
+        const selectedColor = colorLineaSelect.value; 
+        const newSrc = colorMap[selectedColor]; 
+
+        if (newSrc) {
+            
+            recBlanco1 = document.createElement("img");
+            recBlanco1.src = newSrc;
+            recBlanco1.style.position = "absolute";
+            recBlanco1.style.top = "380px";
+            recBlanco1.style.left = "80px";
+            recBlanco1.style.width = "130px";
+            recBlanco1.id = "recBlanco1";
+
+            
+            recBlanco2 = document.createElement("img");
+            recBlanco2.src = newSrc;
+            recBlanco2.style.position = "absolute";
+            recBlanco2.style.top = "380px";
+            recBlanco2.style.left = "313px";
+            recBlanco2.style.width = "130px";
+            recBlanco2.id = "recBlanco2";
+
+            document.body.appendChild(recBlanco1);
+            document.body.appendChild(recBlanco2);
+        } else {
+            console.log("Color no encontrado en colorMap.");
+        }
+    } else if (selectedFormato === "liso") {
+        console.log("borramos");
+    }
+});
+
+
+aplicarColorButton.addEventListener("click", () => {
+    const selectedColor = colorLineaSelect.value;
+    
+    
+    const newSrc = colorMap[selectedColor]; 
+
+    if (newSrc) {
+        
+        if (recBlanco1 && recBlanco2) {
+            recBlanco1.src = newSrc;
+            recBlanco2.src = newSrc;
+        } else {
+            alert("primero pone formato");
+        }
+    } else {
+        console.log("error nuevo jajajaja.");
+    }
 });

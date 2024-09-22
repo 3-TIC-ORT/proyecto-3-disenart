@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro e Inicio de Sesión</title>
+    
 </head>
 <body>
     <h2>Registro</h2>
@@ -60,19 +61,22 @@
 
     <label for="formatoSelect">Formato:</label>
     <select id="formatoSelect">
+        <option value="liso">liso</option>
         <option value="diagonal">linea diagonal</option>
         <option value="medio">linea al medio</option>
     </select>
+    <button id="agregarFormatoButton">Agregar</button>
 <br>
-    <label for="colorlSelect">Color de linea:</label>
-    <select id="colorSelect">
-        <option value="blancol">blanco</option>
-        <option value="negrol">negro</option>
-        <option value="azull">azul</option>
-        <option value="violetal">violeta</option>
-        <option value="rojol">rojo</option>
+    <label for="colorLineaSelect">Color de linea:</label>
+    <select id="colorLineaSelect">
+        <option value="blancol">Blanco</option>
+        <option value="negrol">Negro</option>
+        <option value="azull">Azul</option>
+        <option value="violetal">Violeta</option>
+        <option value="rojol">Rojo</option>
+        <option value="grisl">Gris</option>
     </select>
- 
+    <button id="aplicarColorButton">Aplicar</button>
 <br> 
     <label for="materialSelect">Material:</label>
     <select id="materialSelect">
