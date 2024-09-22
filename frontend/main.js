@@ -20,6 +20,7 @@ const nombrePersonaInput = document.getElementById("nombrePersona");
 const nameOverlay = document.getElementById("nameOverlay");
 const positionSelect = document.getElementById("positionSelect");
 const colorLetraSelect = document.getElementById("colorLetraSelect");
+const uploadImageButton = document.getElementById("uploadImagebutton");
 
 let loggedInUser = null;
 
@@ -150,6 +151,39 @@ loadDesignsButton.addEventListener("click", () => {
     });
 });
 
+uploadImageButton.addEventListener("click", () => {
+    const file = uploadImageInput.files[0]; 
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onloadend = function() {
+            const base64Image = reader.result;  
+            const fileName = file.name;  
+
+            if (loggedInUser) {
+                postData('uploadImage', { 
+                    username: loggedInUser, 
+                    image: base64Image, 
+                    fileName: fileName 
+                }, (response) => {
+                    if (response.ok) {
+                        alert("Imagen subida exitosamente");
+                    } else {
+                        alert("Error al subir la imagen");
+                    }
+                });
+            } else {
+                alert("Debes iniciar sesión para subir imágenes.");
+            }
+        };
+
+        reader.readAsDataURL(file);  
+    } else {
+        alert("Selecciona un archivo de imagen.");
+    }
+});
+
 clearDesignsButton.addEventListener("click", () => {
     const confirmation = confirm("¿Estás seguro de que deseas borrar todos los diseños?");
     if (confirmation) {
@@ -202,32 +236,7 @@ selectColor.addEventListener('change', function() {
 });
 
 
-uploadImageInput.addEventListener('change', function() {
-    const file = uploadImageInput.files[0];
 
-    if (file) {
-        const reader = new FileReader();
-
-        reader.onloadend = function() {
-            const base64Image = reader.result;
-            const fileName = file.name; 
-
-            if (loggedInUser) {
-                postData('uploadImage', { username: loggedInUser, image: base64Image, fileName: fileName }, (response) => {
-                    if (response.ok) {
-                        alert("Imagen subida exitosamente");
-                    } else {
-                        alert("Error al subir la imagen");
-                    }
-                });
-            } else {
-                alert("Debes iniciar sesión para subir imágenes.");
-            }
-        };
-
-        reader.readAsDataURL(file); 
-    }
-});
 
 
 addNameButton.addEventListener("click", () => {
