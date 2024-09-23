@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "username": "geonas",
+    "color": "azul",
+    "talle": "S",
+    "material": "algodon",
+    "nombret": "ort2024",
+    "imagen": "../imagenes/buzoazul.png",
+    "nombrep": "agus",
+    "lugarn": "arriba",
+    "colorn": "CornflowerBlue",
+    "colorl": "azull",
+    "formato": "medio"
+  }
+]

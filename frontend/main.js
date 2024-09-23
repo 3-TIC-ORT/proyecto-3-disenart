@@ -79,7 +79,10 @@ saveDesignButton.addEventListener("click", () => {
     const imageUrl = colorToImageMap[color] || "";  
     const nombrePersona = nombrePersonaInput.value;  
     const positionOption = positionSelect.value;
-    const selectedColor = colorLetraSelect.value  
+    const selectedColor = colorLetraSelect.value; 
+    const colorLinea = colorLineaSelect.value;
+    const formato = formatoSelect.value
+
 
     if (loggedInUser) {
         
@@ -92,7 +95,9 @@ saveDesignButton.addEventListener("click", () => {
             imageUrl, 
             nombrePersona, 
             positionOption,
-            selectedColor   
+            selectedColor,
+            colorLinea,
+            formato   
         }, (response) => {
             if (response.ok) {
                 alert("Diseño guardado con éxito");
@@ -122,6 +127,8 @@ loadDesignsButton.addEventListener("click", () => {
                     nombrePersonaInput.value = "pone tu nombre: "
                     positionSelect.value = diseño.lugarn;
                     colorLetraSelect.value = diseño.colorn;
+                    colorLineaSelect.value = diseño.colorl;
+                    formatoSelect.value = diseño.formato
 
                     const imageUrl = colorToImageMap[diseño.color];
                     if (imageUrl) {
