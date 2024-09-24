@@ -44,7 +44,7 @@ function guardarDiseno(data) {
     let diseños = JSON.parse(fs.readFileSync('../data/diseños.json', 'utf-8'));
 
     
-    diseños.push({ username: data.username, color: data.color, talle: data.talle, material: data.material, nombret: data.nombretp, imagen: data.imageUrl, nombrep: data.nombrePersona, lugarn: data.positionOption, colorn: data.selectedColor, colorl: data.colorLinea, formato: data.formato   });
+    diseños.push({ username: data.username, color: data.color, talle: data.talle, material: data.material, nombret: data.nombretp, imagen: data.imageUrl, nombrep: data.nombrePersona, lugarn: data.positionOption, colorn: data.selectedColor, colorl: data.colorLinea, formato: data.formato, posicionT: data.posicionTexto, texto: data.textoPersonalizado     });
     
     fs.writeFileSync('../data/diseños.json', JSON.stringify(diseños, null, 2));
     console.log("Diseño guardado exitosamente");
@@ -73,7 +73,10 @@ function mandarAImprimir(data) {
         nombrep: data.nombrePersona, 
         lugarn: data.positionOption,
         colorl: data.colorLinea,
-        formato: data.formato 
+        formato: data.formato, 
+        posicionT: data.posicionTexto,
+        texto: data.textoPersonalizad,
+        colorn: data.selectedColor 
     };
 
     fs.writeFileSync('../data/imprimir.json', JSON.stringify(diseñoParaImprimir, null, 2));

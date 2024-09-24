@@ -18,8 +18,9 @@
     
     <h2>Diseños</h2>
     <img id="buzoImage" src="" alt="Imagen del buzo" style="display:none; width: 500px; height: 300px;">
-    <div id="nameOverlay" style="position: absolute; top: 350px; left: 28%; transform: translateX(-50%); font-size: 24px; font-weight: bold;"></div>
-    <div id="textoe" style="position: absolute; top: 350px; left: 140px; transform: translateX(-50%); font-size: larger; font-weight: bold;"></div>
+    <div id="nameOverlay" style="position: absolute; top: 350px; left: 28%; transform: translateX(-50%); font-size: 24px; font-weight: bold; z-index: 1;"></div>
+    <div id="textoe" style="position: absolute; top: 330px; left: 140px; transform: translateX(-50%); font-size: larger; font-weight: bold; z-index: 2;"></div>
+
 
     <label for="nombrePersona">Nombre de la persona:</label>
     <input type="text" id="nombrePersona" placeholder="Nombre">
@@ -65,8 +66,10 @@
         <option value="blanco">blanco</option>
         <option value="negro">negro</option>
         <option value="azul">azul</option>
-        <option value="violeta">violeta</option>
         <option value="rojo">rojo</option>
+        <option value="verde">verde</option>
+        <option value="celeste">celeste</option>
+        <option value="naranja">naranja</option>
     </select>
 
     <label for="talleSelect">Talle:</label>

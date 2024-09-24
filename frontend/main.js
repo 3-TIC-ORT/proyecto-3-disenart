@@ -70,10 +70,12 @@ loginButton.addEventListener("click", () => {
 
 const colorToImageMap = {
     negro: "../imagenes/buzonegro.png",
-    violeta: "../imagenes/buzovioleta.png",
     azul: "../imagenes/buzoazul.png",
     blanco: "../imagenes/buzoblanco.png",
-    rojo: "../imagenes/buzorojo.png"
+    rojo: "../imagenes/buzorojo.png",
+    verde: "../imagenes/buzoverde.png",
+    naranja: "../imagenes/buzonaranja.png",
+    celeste: "../imagenes/buzoceleste.png"
 };
 
 saveDesignButton.addEventListener("click", () => {
@@ -87,7 +89,8 @@ saveDesignButton.addEventListener("click", () => {
     const selectedColor = colorLetraSelect.value; 
     const colorLinea = colorLineaSelect.value;
     const formato = formatoSelect.value
-
+    const posicionTexto = posicionTextoSelect.value
+    const textoPersonalizado = textoPersonalizadoInput.value
 
     if (loggedInUser) {
         
@@ -102,7 +105,10 @@ saveDesignButton.addEventListener("click", () => {
             positionOption,
             selectedColor,
             colorLinea,
-            formato   
+            formato,
+            posicionTexto,
+            textoPersonalizado
+
         }, (response) => {
             if (response.ok) {
                 alert("Diseño guardado con éxito");
@@ -129,11 +135,15 @@ loadDesignsButton.addEventListener("click", () => {
                     colorSelect.value = diseño.color;
                     materialSelect.value = diseño.material;
                     nombreTrabajo.value = "Versión de: ";
-                    nombrePersonaInput.value = "pone tu nombre: "
+                    nombrePersonaInput.value = "pone tu nombre "
                     positionSelect.value = diseño.lugarn;
                     colorLetraSelect.value = diseño.colorn;
                     colorLineaSelect.value = diseño.colorl;
                     formatoSelect.value = diseño.formato
+                    posicionTextoSelect.value = diseño.posicionT
+                    textoPersonalizadoInput.value = diseño.texto
+                    talleSelect.value = diseño.talle
+
 
                     const imageUrl = colorToImageMap[diseño.color];
                     if (imageUrl) {
@@ -225,9 +235,14 @@ printDesignButton.addEventListener("click", () => {
     const nombrePersona = nombrePersonaInput.value;  
     const positionOption = positionSelect.value; 
     const selectedColor = colorLetraSelect.value;
+    const formato = formatoSelect.value
+    const colorLinea = colorLineaSelect.value;
+    const posicionTexto = posicionTextoSelect.value
+    const textoPersonalizado = textoPersonalizadoInput.value
+
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor }, (response) => {
+        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
@@ -267,13 +282,13 @@ addNameButton.addEventListener("click", () => {
 });
 
 
-let nameTopPosition = 350;
+let nameTopPosition = 330;
 
 positionSelect.addEventListener("change", () => {
     const selectedOption = positionSelect.value;
 
     if (selectedOption === "arriba") {
-        nameTopPosition = 350; 
+        nameTopPosition = 330; 
     } else if (selectedOption === "abajo") {
         nameTopPosition = 450; 
     }
@@ -359,7 +374,7 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco1.src = newSrc;
             recBlanco1.style.position = "absolute";
             recBlanco1.style.top = "380px";
-            recBlanco1.style.left = "80px";
+            recBlanco1.style.left = "75px";
             recBlanco1.style.width = "130px";
             recBlanco1.id = "recBlanco1";
 
@@ -368,7 +383,7 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco2.src = newSrc;
             recBlanco2.style.position = "absolute";
             recBlanco2.style.top = "380px";
-            recBlanco2.style.left = "313px";
+            recBlanco2.style.left = "316px";
             recBlanco2.style.width = "130px";
             recBlanco2.id = "recBlanco2";
 
