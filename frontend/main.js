@@ -25,6 +25,11 @@ const formatoSelect = document.getElementById("formatoSelect");
 const agregarFormatoButton = document.getElementById("agregarFormatoButton");
 const colorLineaSelect = document.getElementById("colorLineaSelect");
 const aplicarColorButton = document.getElementById("aplicarColorButton");
+const posicionTexto = document.getElementById("posicionTextoSelect");
+const addTexto = document.getElementById("addTextoButton");
+const textoPersonalizado = document.getElementById("textoPersonalizadoInput");
+const textoe = document.getElementById("textoe");
+
 
 let loggedInUser = null;
 
@@ -248,8 +253,6 @@ selectColor.addEventListener('change', function() {
 
 
 
-
-
 addNameButton.addEventListener("click", () => {
     const nombrePersona = nombrePersonaInput.value;
     const selectedColor = colorLetraSelect.value; 
@@ -284,7 +287,38 @@ colorLetraSelect.addEventListener("change", () => {
     nameOverlay.style.color = selectedColor; 
 });
 
+let textoTopPosition = 350;
+let textoLeftPosition = 140;  
 
+posicionTexto.addEventListener("change", () => {
+    const selectedOption2 = posicionTexto.value;
+
+    if (selectedOption2 === "arriba-atras") {
+        textoTopPosition = 350; 
+        textoLeftPosition = 375;  
+    } else if (selectedOption2 === "abajo-atras") {
+        textoTopPosition = 450; 
+        textoLeftPosition = 375;  
+    } else if (selectedOption2 === "medio-atras") {
+        textoTopPosition = 400; 
+        textoLeftPosition = 375;  
+    }
+    
+    textoe.style.top = `${textoTopPosition}px`;
+    textoe.style.left = `${textoLeftPosition}px`;  
+});
+
+addTexto.addEventListener("click", () => {
+    const texto = textoPersonalizado.value;
+    if (texto.trim() !== "") {
+        textoe.textContent = texto;  
+    }
+});
+
+colorLetraSelect.addEventListener("change", () => {
+    const selectedColor = colorLetraSelect.value; 
+    textoe.style.color = selectedColor;  
+});
 
 let recBlanco1, recBlanco2;
 
@@ -358,3 +392,4 @@ aplicarColorButton.addEventListener("click", () => {
         console.log("error nuevo jajajaja.");
     }
 });
+

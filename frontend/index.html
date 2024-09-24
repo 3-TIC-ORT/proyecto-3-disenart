@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro e Inicio de Sesión</title>
-    
+    <title>diseñart</title>
 </head>
 <body>
     <h2>Registro</h2>
@@ -20,7 +19,8 @@
     <h2>Diseños</h2>
     <img id="buzoImage" src="" alt="Imagen del buzo" style="display:none; width: 500px; height: 300px;">
     <div id="nameOverlay" style="position: absolute; top: 350px; left: 28%; transform: translateX(-50%); font-size: 24px; font-weight: bold;"></div>
-    
+    <div id="textoe" style="position: absolute; top: 350px; left: 140px; transform: translateX(-50%); font-size: larger; font-weight: bold;"></div>
+
     <label for="nombrePersona">Nombre de la persona:</label>
     <input type="text" id="nombrePersona" placeholder="Nombre">
     <button id="addNameButton">Agregar Nombre</button>
@@ -30,7 +30,23 @@
         <option value="abajo">atras abajo</option>
     </select>
 
-    <label for="colorLetraSelect">Color de la letra del nombre:</label>
+    <label for="textoPersonalizado">texto para agregar</label>
+    <input id="textoPersonalizadoInput"placeholder="Escribe tu texto aquí">
+    <button id="addTextoButton">Agregar texto</button>
+
+    <label for="posicionTexto">Elige la posición:</label>
+    <select id="posicionTextoSelect">
+        <option value="arriba-adelante">Arriba Adelante</option>
+        <option value="abajo-adelante">Abajo Adelante</option>
+        <option value="medio-adelante">Al Medio Adelante</option>
+        <option value="abajo-atras">Abajo Atrás</option>
+        <option value="arriba-atras">Arriba Atrás</option>
+        <option value="medio-atras">Al Medio Atrás</option>
+    </select>
+
+    <br>
+
+    <label for="colorLetraSelect">Color de la letra:</label>
     <select id="colorLetraSelect">
         <option value="black">Negro</option>
         <option value="white">Blanco</option>
@@ -39,12 +55,13 @@
         <option value="DarkGray">gris</option>
         <option value="DarkRed"> bordo </option>
     </select>
-    
+    <br>
     <label for="nombreTrabajo">Nombre del trabajo:</label>
     <input type="text" id="nombreTrabajo" placeholder="Nombre del trabajo">
 
     <label for="colorSelect">Color:</label>
     <select id="colorSelect">
+        <option value="null">elegi</option>
         <option value="blanco">blanco</option>
         <option value="negro">negro</option>
         <option value="azul">azul</option>
@@ -89,7 +106,7 @@
     <button id="loadDesignsButton">Ver Diseños</button> 
     <button id="clearDesignsButton">Borrar Diseños</button>
     <button id="printDesignButton">Mandar a Imprimir</button>
-     <br> <br>
+    <br> <br>
     <label for="uploadImage">Adjuntar imagen personalizada:</label>
     <input type="file" id="uploadImage" accept="image/*">
     <button id="uploadImagebutton"> Confirmar </button>
