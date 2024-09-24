@@ -297,11 +297,20 @@ posicionTexto.addEventListener("change", () => {
         textoTopPosition = 350; 
         textoLeftPosition = 375;  
     } else if (selectedOption2 === "abajo-atras") {
-        textoTopPosition = 450; 
+        textoTopPosition = 480; 
         textoLeftPosition = 375;  
     } else if (selectedOption2 === "medio-atras") {
         textoTopPosition = 400; 
         textoLeftPosition = 375;  
+    } else if (selectedOption2 === "arriba-adelante") {
+        textoTopPosition = 330; 
+        textoLeftPosition = 140;  
+    } else if (selectedOption2 === "medio-adelante") {
+        textoTopPosition = 380; 
+        textoLeftPosition = 140;  
+    } else if (selectedOption2 === "abajo-adelante") {
+        textoTopPosition = 450; 
+        textoLeftPosition = 140;  
     }
     
     textoe.style.top = `${textoTopPosition}px`;
