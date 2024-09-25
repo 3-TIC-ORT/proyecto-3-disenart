@@ -20,6 +20,7 @@
     <img id="buzoImage" src="" alt="Imagen del buzo" style="display:none; width: 500px; height: 300px;">
     <div id="nameOverlay" style="position: absolute; top: 350px; left: 28%; transform: translateX(-50%); font-size: 24px; font-weight: bold; z-index: 1;"></div>
     <div id="textoe" style="position: absolute; top: 330px; left: 140px; transform: translateX(-50%); font-size: larger; font-weight: bold; z-index: 2;"></div>
+    <div id="subtexto" style="position: absolute; top: 330px; left: 140px; transform: translateX(-50%); font-size: larger; font-weight: bold; z-index: 2;"></div>
 
 
     <label for="nombrePersona">Nombre de la persona:</label>
@@ -37,6 +38,22 @@
 
     <label for="posicionTexto">Elige la posición:</label>
     <select id="posicionTextoSelect">
+        <option value="arriba-adelante">Arriba Adelante</option>
+        <option value="abajo-adelante">Abajo Adelante</option>
+        <option value="medio-adelante">Al Medio Adelante</option>
+        <option value="abajo-atras">Abajo Atrás</option>
+        <option value="arriba-atras">Arriba Atrás</option>
+        <option value="medio-atras">Al Medio Atrás</option>
+    </select>
+
+    <br>
+
+    <label for="subtextoPersonalizado">subtexto para agregar</label>
+    <input id="subtextoPersonalizadoInput"placeholder="Escribe tu subtexto aquí">
+    <button id="addsubTextoButton">Agregar texto</button>
+
+    <label for="posicionsubTexto">Elige la posición:</label>
+    <select id="posicionsubTextoSelect">
         <option value="arriba-adelante">Arriba Adelante</option>
         <option value="abajo-adelante">Abajo Adelante</option>
         <option value="medio-adelante">Al Medio Adelante</option>

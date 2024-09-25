@@ -29,6 +29,11 @@ const posicionTexto = document.getElementById("posicionTextoSelect");
 const addTexto = document.getElementById("addTextoButton");
 const textoPersonalizado = document.getElementById("textoPersonalizadoInput");
 const textoe = document.getElementById("textoe");
+const subtextoPersonalizado = document.getElementById("subtextoPersonalizadoInput");
+const botonsubtexto = document.getElementById("addsubTextoButton");
+const posicionsubTexto = document.getElementById ("posicionsubTextoSelect");
+const subtexto = document.getElementById("subtexto");
+
 
 
 let loggedInUser = null;
@@ -336,6 +341,44 @@ addTexto.addEventListener("click", () => {
     const texto = textoPersonalizado.value;
     if (texto.trim() !== "") {
         textoe.textContent = texto;  
+    }
+});
+
+let subtextoTopPosition = 355;
+let subtextoLeftPosition = 140;  
+
+
+posicionsubTexto.addEventListener("change", () => {
+    const selectedOption3 = posicionsubTexto.value;
+
+    if (selectedOption3 === "arriba-atras") {
+        subtextoTopPosition = 355; 
+        subtextoLeftPosition = 375;  
+    } else if (selectedOption3 === "abajo-atras") {
+        subtextoTopPosition = 480; 
+        subtextoLeftPosition = 375;  
+    } else if (selectedOption3 === "medio-atras") {
+        subtextoTopPosition = 400; 
+        subtextoLeftPosition = 375;  
+    } else if (selectedOption3 === "arriba-adelante") {
+        subtextoTopPosition = 330; 
+        subtextoLeftPosition = 140;  
+    } else if (selectedOption3 === "medio-adelante") {
+        subtextoTopPosition = 380; 
+        subtextoLeftPosition = 140;  
+    } else if (selectedOption3 === "abajo-adelante") {
+        subtextoTopPosition = 450; 
+        subtextoLeftPosition = 140;  
+    }
+    
+    subtexto.style.top = `${subtextoTopPosition}px`;
+    subtexto.style.left = `${subtextoLeftPosition}px`;  
+});
+
+botonsubtexto.addEventListener("click", () => {
+    const texto2 = subtextoPersonalizado.value;
+    if (texto2.trim() !== "") {
+        subtexto.textContent = texto2;  
     }
 });
 
