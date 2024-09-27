@@ -7,6 +7,7 @@ onEvent('guardarDiseno', guardarDiseno);
 onEvent('obtenerDisenos', enviarDisenos);
 onEvent('borrarDisenos', borrarDisenos);
 onEvent('mandarAImprimir', mandarAImprimir);
+onEvent('uploadImage', subirImagen);
 
 function enviarRegistro(data) {
     let usuarios = JSON.parse(fs.readFileSync('../data/usuarios.json', 'utf-8'));
@@ -43,7 +44,7 @@ function guardarDiseno(data) {
     let diseños = JSON.parse(fs.readFileSync('../data/diseños.json', 'utf-8'));
 
     
-    diseños.push({ username: data.username, color: data.color, talle: data.talle, material: data.material, nombret: data.nombretp });
+    diseños.push({ username: data.username, color: data.color, talle: data.talle, material: data.material, nombret: data.nombretp, imagen: data.imageUrl, nombrep: data.nombrePersona, lugarn: data.positionOption, colorn: data.selectedColor, colorl: data.colorLinea, formato: data.formato, posicionT: data.posicionTexto, texto: data.textoPersonalizado     });
     
     fs.writeFileSync('../data/diseños.json', JSON.stringify(diseños, null, 2));
     console.log("Diseño guardado exitosamente");
@@ -67,12 +68,38 @@ function mandarAImprimir(data) {
         color: data.color,
         talle: data.talle,
         material: data.material,
-        nombretp: data.nombretp
+        nombretp: data.nombretp,
+        imagen: data.imageUrl,
+        nombrep: data.nombrePersona, 
+        lugarn: data.positionOption,
+        colorl: data.colorLinea,
+        formato: data.formato, 
+        posicionT: data.posicionTexto,
+        texto: data.textoPersonalizad,
+        colorn: data.selectedColor 
     };
 
     fs.writeFileSync('../data/imprimir.json', JSON.stringify(diseñoParaImprimir, null, 2));
     console.log("Diseño enviado a imprimir");
     return { ok: true, message: "Diseño enviado a imprimir" };
+}
+
+function subirImagen(data) {
+    const { username, image, fileName } = data;
+
+    if (!image || !username || !fileName) {
+        console.log("Faltan datos");
+        return { ok: false, message: "Datos incompletos" };
+    }
+
+    
+    const base64Data = image.replace(/^data:image\/\w+;base64,/, ""); 
+    const nombrei = `../imgfin/${fileName}`; 
+
+    
+    fs.writeFileSync(nombrei, base64Data, 'base64');
+    console.log(`Imagen subida por ${username} guardada en ${nombrei}`);
+    return { ok: true, message: "Imagen guardada", fileName };
 }
 
 startServer();

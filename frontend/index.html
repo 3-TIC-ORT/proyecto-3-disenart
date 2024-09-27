@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro e Inicio de Sesión</title>
+    <title>diseñart</title>
 </head>
 <body>
     <h2>Registro</h2>
@@ -18,17 +18,75 @@
     
     <h2>Diseños</h2>
     <img id="buzoImage" src="" alt="Imagen del buzo" style="display:none; width: 500px; height: 300px;">
+    <div id="nameOverlay" style="position: absolute; top: 350px; left: 28%; transform: translateX(-50%); font-size: 24px; font-weight: bold; z-index: 1;"></div>
+    <div id="textoe" style="position: absolute; top: 330px; left: 140px; transform: translateX(-50%); font-size: larger; font-weight: bold; z-index: 2;"></div>
+    <div id="subtexto" style="position: absolute; top: 330px; left: 140px; transform: translateX(-50%); font-size: larger; font-weight: bold; z-index: 2;"></div>
+
+
+    <label for="nombrePersona">Nombre de la persona:</label>
+    <input type="text" id="nombrePersona" placeholder="Nombre">
+    <button id="addNameButton">Agregar Nombre</button>
+
+    <select id="positionSelect">
+        <option value="arriba">atras arriba</option>
+        <option value="abajo">atras abajo</option>
+    </select>
+
+    <label for="textoPersonalizado">texto para agregar</label>
+    <input id="textoPersonalizadoInput"placeholder="Escribe tu texto aquí">
+    <button id="addTextoButton">Agregar texto</button>
+
+    <label for="posicionTexto">Elige la posición:</label>
+    <select id="posicionTextoSelect">
+        <option value="arriba-adelante">Arriba Adelante</option>
+        <option value="abajo-adelante">Abajo Adelante</option>
+        <option value="medio-adelante">Al Medio Adelante</option>
+        <option value="abajo-atras">Abajo Atrás</option>
+        <option value="arriba-atras">Arriba Atrás</option>
+        <option value="medio-atras">Al Medio Atrás</option>
+    </select>
+
+    <br>
+
+    <label for="subtextoPersonalizado">subtexto para agregar</label>
+    <input id="subtextoPersonalizadoInput"placeholder="Escribe tu subtexto aquí">
+    <button id="addsubTextoButton">Agregar texto</button>
+
+    <label for="posicionsubTexto">Elige la posición:</label>
+    <select id="posicionsubTextoSelect">
+        <option value="arriba-adelante">Arriba Adelante</option>
+        <option value="abajo-adelante">Abajo Adelante</option>
+        <option value="medio-adelante">Al Medio Adelante</option>
+        <option value="abajo-atras">Abajo Atrás</option>
+        <option value="arriba-atras">Arriba Atrás</option>
+        <option value="medio-atras">Al Medio Atrás</option>
+    </select>
+
+    <br>
+
+    <label for="colorLetraSelect">Color de la letra:</label>
+    <select id="colorLetraSelect">
+        <option value="black">Negro</option>
+        <option value="white">Blanco</option>
+        <option value="CornflowerBlue">celeste</option>
+        <option value="DarkOrchid">magenta</option> //son los que mostro ivo de w3schools 
+        <option value="DarkGray">gris</option>
+        <option value="DarkRed"> bordo </option>
+    </select>
+    <br>
     <label for="nombreTrabajo">Nombre del trabajo:</label>
     <input type="text" id="nombreTrabajo" placeholder="Nombre del trabajo">
 
     <label for="colorSelect">Color:</label>
     <select id="colorSelect">
-        <option value="blanco">elegi</option>
+        <option value="null">elegi</option>
         <option value="blanco">blanco</option>
         <option value="negro">negro</option>
         <option value="azul">azul</option>
-        <option value="violeta">violeta</option>
         <option value="rojo">rojo</option>
+        <option value="verde">verde</option>
+        <option value="celeste">celeste</option>
+        <option value="naranja">naranja</option>
     </select>
 
     <label for="talleSelect">Talle:</label>
@@ -38,6 +96,24 @@
         <option value="L">L</option>
     </select>
 
+    <label for="formatoSelect">Formato:</label>
+    <select id="formatoSelect">
+        <option value="liso">liso</option>
+        <option value="medio">linea al medio</option>
+    </select>
+    <button id="agregarFormatoButton">Agregar</button>
+<br>
+    <label for="colorLineaSelect">Color de linea:</label>
+    <select id="colorLineaSelect">
+        <option value="blancol">Blanco</option>
+        <option value="negrol">Negro</option>
+        <option value="azull">Azul</option>
+        <option value="violetal">Violeta</option>
+        <option value="rojol">Rojo</option>
+        <option value="grisl">Gris</option>
+    </select>
+    <button id="aplicarColorButton">Aplicar</button>
+<br> 
     <label for="materialSelect">Material:</label>
     <select id="materialSelect">
         <option value="algodon">Algodón</option>
@@ -49,7 +125,10 @@
     <button id="loadDesignsButton">Ver Diseños</button> 
     <button id="clearDesignsButton">Borrar Diseños</button>
     <button id="printDesignButton">Mandar a Imprimir</button>
-
+    <br> <br>
+    <label for="uploadImage">Adjuntar imagen personalizada:</label>
+    <input type="file" id="uploadImage" accept="image/*">
+    <button id="uploadImagebutton"> Confirmar </button>
 
     <br><br>
     <h1>Diseños creados hasta ahora</h1> 
