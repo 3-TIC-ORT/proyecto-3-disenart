@@ -442,8 +442,38 @@ agregarFormatoButton.addEventListener("click", () => {
         }
     } else if (selectedFormato === "liso") {
         console.log("borramos");
+    } else if (selectedFormato=== "diagonal"){
+
+        const selectedColor = colorLineaSelect.value; 
+        const newSrc = colorMap[selectedColor]; 
+
+        if (newSrc) {
+            
+            recBlanco1 = document.createElement("img");
+            recBlanco1.src = newSrc;
+            recBlanco1.style.position = "absolute";
+            recBlanco1.style.top = "380px";
+            recBlanco1.style.left = "40px";
+            recBlanco1.style.width = "250px";
+            recBlanco1.style.height = "20px"
+            recBlanco1.style.transform = "rotate(-60deg)";
+            recBlanco1.id = "recBlanco1";
+
+            
+            recBlanco2 = document.createElement("img");
+            recBlanco2.src = newSrc;
+            recBlanco2.style.position = "absolute";
+            recBlanco2.style.top = "380px";
+            recBlanco2.style.left = "300px";
+            recBlanco2.style.width = "250px";
+            recBlanco2.style.height = "20px"
+            recBlanco2.style.transform = "rotate(-60deg)";
+            recBlanco2.id = "recBlanco2";
+
+            document.body.appendChild(recBlanco1);
+            document.body.appendChild(recBlanco2);
     }
-});
+}});
 
 
 aplicarColorButton.addEventListener("click", () => {
