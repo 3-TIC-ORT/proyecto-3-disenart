@@ -96,6 +96,8 @@ saveDesignButton.addEventListener("click", () => {
     const formato = formatoSelect.value
     const posicionTexto = posicionTextoSelect.value
     const textoPersonalizado = textoPersonalizadoInput.value
+    const subtextoPersonalizado = subtextoPersonalizadoInput.value
+    const posicionsubTexto = posicionsubTextoSelect.value
 
     if (loggedInUser) {
         
@@ -112,7 +114,9 @@ saveDesignButton.addEventListener("click", () => {
             colorLinea,
             formato,
             posicionTexto,
-            textoPersonalizado
+            textoPersonalizado,
+            posicionsubTexto,
+            subtextoPersonalizado
 
         }, (response) => {
             if (response.ok) {
@@ -148,7 +152,8 @@ loadDesignsButton.addEventListener("click", () => {
                     posicionTextoSelect.value = diseño.posicionT
                     textoPersonalizadoInput.value = diseño.texto
                     talleSelect.value = diseño.talle
-
+                    posicionsubTextoSelect.value = diseño.subtextop
+                    subtextoPersonalizadoInput.value = diseño.subtextoi
 
                     const imageUrl = colorToImageMap[diseño.color];
                     if (imageUrl) {
@@ -344,7 +349,7 @@ addTexto.addEventListener("click", () => {
     }
 });
 
-let subtextoTopPosition = 355;
+let subtextoTopPosition = 340;
 let subtextoLeftPosition = 140;  
 
 
@@ -352,22 +357,22 @@ posicionsubTexto.addEventListener("change", () => {
     const selectedOption3 = posicionsubTexto.value;
 
     if (selectedOption3 === "arriba-atras") {
-        subtextoTopPosition = 355; 
+        subtextoTopPosition = 360; 
         subtextoLeftPosition = 375;  
     } else if (selectedOption3 === "abajo-atras") {
-        subtextoTopPosition = 480; 
+        subtextoTopPosition = 490; 
         subtextoLeftPosition = 375;  
     } else if (selectedOption3 === "medio-atras") {
-        subtextoTopPosition = 400; 
+        subtextoTopPosition = 410; 
         subtextoLeftPosition = 375;  
     } else if (selectedOption3 === "arriba-adelante") {
-        subtextoTopPosition = 330; 
+        subtextoTopPosition = 340; 
         subtextoLeftPosition = 140;  
     } else if (selectedOption3 === "medio-adelante") {
-        subtextoTopPosition = 380; 
+        subtextoTopPosition = 390; 
         subtextoLeftPosition = 140;  
     } else if (selectedOption3 === "abajo-adelante") {
-        subtextoTopPosition = 450; 
+        subtextoTopPosition = 460; 
         subtextoLeftPosition = 140;  
     }
     
