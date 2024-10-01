@@ -292,13 +292,13 @@ addNameButton.addEventListener("click", () => {
 });
 
 
-let nameTopPosition = 330;
+let nameTopPosition = 315;
 
 positionSelect.addEventListener("change", () => {
     const selectedOption = positionSelect.value;
 
     if (selectedOption === "arriba") {
-        nameTopPosition = 330; 
+        nameTopPosition = 315; 
     } else if (selectedOption === "abajo") {
         nameTopPosition = 450; 
     }
@@ -309,7 +309,8 @@ positionSelect.addEventListener("change", () => {
 
 colorLetraSelect.addEventListener("change", () => {
     const selectedColor = colorLetraSelect.value; 
-    nameOverlay.style.color = selectedColor; 
+    nameOverlay.style.color = selectedColor;
+    subtexto.style.color = selectedColor; 
 });
 
 let textoTopPosition = 350;
@@ -319,7 +320,7 @@ posicionTexto.addEventListener("change", () => {
     const selectedOption2 = posicionTexto.value;
 
     if (selectedOption2 === "arriba-atras") {
-        textoTopPosition = 350; 
+        textoTopPosition = 330; 
         textoLeftPosition = 375;  
     } else if (selectedOption2 === "abajo-atras") {
         textoTopPosition = 480; 
@@ -449,7 +450,7 @@ agregarFormatoButton.addEventListener("click", () => {
 
         if (newSrc) {
             
-            recBlanco1 = document.createElement("img");
+            recBlanco2 = document.createElement("img");
             recBlanco1.src = newSrc;
             recBlanco1.style.position = "absolute";
             recBlanco1.style.top = "380px";
@@ -468,6 +469,36 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco2.style.width = "250px";
             recBlanco2.style.height = "20px"
             recBlanco2.style.transform = "rotate(-60deg)";
+            recBlanco2.id = "recBlanco2";
+
+            document.body.appendChild(recBlanco1);
+            document.body.appendChild(recBlanco2);
+    } } else if (selectedFormato=== "ben10"){
+
+        const selectedColor = colorLineaSelect.value; 
+        const newSrc = colorMap[selectedColor]; 
+
+        if (newSrc) {
+            
+            recBlanco1 = document.createElement("img");
+            recBlanco1.src = newSrc;
+            recBlanco1.style.position = "absolute";
+            recBlanco1.style.top = "400px";
+            recBlanco1.style.left = "35px";
+            recBlanco1.style.width = "220px";
+            recBlanco1.style.height = "40px"
+            recBlanco1.style.transform = "rotate(90deg)";
+            recBlanco1.id = "recBlanco1";
+
+            
+            recBlanco2 = document.createElement("img");
+            recBlanco2.src = newSrc;
+            recBlanco2.style.position = "absolute";
+            recBlanco2.style.top = "390px";
+            recBlanco2.style.left = "286px";
+            recBlanco2.style.width = "220px";
+            recBlanco2.style.height = "40px"
+            recBlanco2.style.transform = "rotate(90deg)";
             recBlanco2.id = "recBlanco2";
 
             document.body.appendChild(recBlanco1);
