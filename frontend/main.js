@@ -249,10 +249,14 @@ printDesignButton.addEventListener("click", () => {
     const colorLinea = colorLineaSelect.value;
     const posicionTexto = posicionTextoSelect.value
     const textoPersonalizado = textoPersonalizadoInput.value
+    const posicionsubTexto = posicionsubTextoSelect.value
+    const subtextoPersonalizado = subtextoPersonalizadoInput.value
+   
+
 
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado }, (response) => {
+        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado, posicionsubTexto, subtextoPersonalizado }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
