@@ -33,6 +33,8 @@ const subtextoPersonalizado = document.getElementById("subtextoPersonalizadoInpu
 const botonsubtexto = document.getElementById("addsubTextoButton");
 const posicionsubTexto = document.getElementById ("posicionsubTextoSelect");
 const subtexto = document.getElementById("subtexto");
+const uploadCustomImageButton = document.getElementById('uploadCustomImageButton');
+const uploadImageCustomInput = document.getElementById('uploadImageCustom');
 
 
 
@@ -251,7 +253,7 @@ printDesignButton.addEventListener("click", () => {
     const textoPersonalizado = textoPersonalizadoInput.value
     const posicionsubTexto = posicionsubTextoSelect.value
     const subtextoPersonalizado = subtextoPersonalizadoInput.value
-   
+
 
 
 
@@ -530,3 +532,36 @@ aplicarColorButton.addEventListener("click", () => {
     }
 });
 
+uploadCustomImageButton.addEventListener("click", () => {
+    const file = uploadImageCustomInput.files[0]; 
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onloadend = function() {
+            const base64Image = reader.result;  
+            const fileName = file.name;  
+
+            if (loggedInUser) {
+                postData('uploadImagecustom', { 
+                    username: loggedInUser, 
+                    image: base64Image, 
+                    fileName: fileName,
+                    folder: 'imagenesa'  
+                }, (response) => {
+                    if (response.ok) {
+                        alert("Imagen subida exitosamente a la carpeta imagenesa");
+                    } else {
+                        alert("Error al subir la imagen");
+                    }
+                });
+            } else {
+                alert("Debes iniciar sesión para subir imágenes.");
+            }
+        };
+
+        reader.readAsDataURL(file);  
+    } else {
+        alert("Selecciona un archivo de imagen.");
+    }
+});

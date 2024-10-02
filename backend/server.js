@@ -8,6 +8,7 @@ onEvent('obtenerDisenos', enviarDisenos);
 onEvent('borrarDisenos', borrarDisenos);
 onEvent('mandarAImprimir', mandarAImprimir);
 onEvent('uploadImage', subirImagen);
+onEvent('uploadImagecustom', subirImagencustom);
 
 function enviarRegistro(data) {
     let usuarios = JSON.parse(fs.readFileSync('../data/usuarios.json', 'utf-8'));
@@ -102,6 +103,28 @@ function subirImagen(data) {
     fs.writeFileSync(nombrei, base64Data, 'base64');
     console.log(`Imagen subida por ${username} guardada en ${nombrei}`);
     return { ok: true, message: "Imagen guardada", fileName };
+}
+
+function subirImagencustom(data) {
+    const { username, image, fileName } = data;
+
+    if (!image || !username || !fileName) {
+        console.log("Faltan datos");
+        return { ok: false, message: "Datos incompletos" };
+    }
+
+    const base64Data = image.replace(/^data:image\/\w+;base64,/, ""); 
+
+    const nombrei = `../imagenesa/${fileName}`;
+
+    if (fs.existsSync('../imagenesa')) {
+        fs.writeFileSync(nombrei, base64Data, 'base64');
+        console.log(`Imagen subida por ${username} guardada en ${nombrei}`);
+        return { ok: true, message: "Imagen guardada", fileName };
+    } else {
+        console.log("La carpeta 'imagenes' no existe");
+        return { ok: false, message: "La carpeta 'imagenes' no existe" };
+    }
 }
 
 startServer();
