@@ -533,21 +533,30 @@ aplicarColorButton.addEventListener("click", () => {
 });
 
 uploadCustomImageButton.addEventListener("click", () => {
-    const file = uploadImageCustomInput.files[0]; 
+    const file = uploadImageCustomInput.files[0];
 
     if (file) {
         const reader = new FileReader();
 
         reader.onloadend = function() {
-            const base64Image = reader.result;  
-            const fileName = file.name;  
+            const base64Image = reader.result;
+            const fileName = file.name;
+
+            const imageElement = document.createElement('img');
+            imageElement.src = base64Image;
+            imageElement.style.maxWidth = '100%'; 
+            imageElement.style.height = 'auto';
+            
+            const imageContainer = document.getElementById("imagencus");
+            imageContainer.innerHTML = ""; 
+            imageContainer.appendChild(imageElement);
 
             if (loggedInUser) {
-                postData('uploadImagecustom', { 
-                    username: loggedInUser, 
-                    image: base64Image, 
+                postData('uploadImagecustom', {
+                    username: loggedInUser,
+                    image: base64Image,
                     fileName: fileName,
-                    folder: 'imagenesa'  
+                    folder: 'imagenesa'
                 }, (response) => {
                     if (response.ok) {
                         alert("Imagen subida exitosamente a la carpeta imagenesa");
@@ -560,7 +569,7 @@ uploadCustomImageButton.addEventListener("click", () => {
             }
         };
 
-        reader.readAsDataURL(file);  
+        reader.readAsDataURL(file);
     } else {
         alert("Selecciona un archivo de imagen.");
     }
