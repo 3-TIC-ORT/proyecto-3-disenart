@@ -36,7 +36,7 @@ const subtexto = document.getElementById("subtexto");
 const uploadCustomImageButton = document.getElementById('uploadCustomImageButton');
 const uploadImageCustomInput = document.getElementById('uploadImageCustom');
 const guardarImagenButton = document.getElementById("guardarImagenButton")
-
+const urlcompartido = document.getElementById("urlC")
 
 let loggedInUser = null;
 
@@ -102,6 +102,7 @@ saveDesignButton.addEventListener("click", () => {
     const subtextoPersonalizado = subtextoPersonalizadoInput.value
     const posicionsubTexto = posicionsubTextoSelect.value
     const posicionfoto = posicionFOTOSelect.value
+    const urlcompartido = urlC.value
     
 
     if (loggedInUser) {
@@ -123,7 +124,8 @@ saveDesignButton.addEventListener("click", () => {
             posicionsubTexto,
             subtextoPersonalizado,
             posicionfoto,
-            fileName
+            fileName,
+            urlcompartido
 
         }, (response) => {
             if (response.ok) {
@@ -162,10 +164,11 @@ loadDesignsButton.addEventListener("click", () => {
                     posicionsubTextoSelect.value = diseño.subtextop
                     subtextoPersonalizadoInput.value = diseño.subtextoi
                     posicionFOTOSelect.value = diseño.fotop
-                    uploadImageCustom.value = diseños.foto
+                    uploadImageCustom.value = diseño.foto
+                    urlC.value = diseño.url
                     
 
-                    const imageUrl = colorToImageMap[diseño.color];
+                    const imageUrl = colorToImageMap[diseño.color && diseño.foto];
                     if (imageUrl) {
                         imagenColor.src = imageUrl;
                         imagenColor.style.display = "block";  
@@ -173,6 +176,10 @@ loadDesignsButton.addEventListener("click", () => {
                         imagenColor.src = "";
                         imagenColor.style.display = "none";  
                     }
+                    const imagePath = `../imagenesa/${diseño.foto}`; 
+                    imagenColor.src = imagePath;
+                    imagenColor.style.display = "block"; 
+
                 });
 
                 li.addEventListener("dblclick", () => {
@@ -263,12 +270,14 @@ printDesignButton.addEventListener("click", () => {
     const posicionsubTexto = posicionsubTextoSelect.value
     const posicionfoto = posicionFOTOSelect.value
     const fileName = uploadedFileName || "";
+    const urlcompartido = urlC.value
+    
 
 
 
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado, posicionsubTexto, subtextoPersonalizado, posicionfoto, fileName }, (response) => {
+        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado, posicionsubTexto, subtextoPersonalizado, posicionfoto, fileName, urlcompartido }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
