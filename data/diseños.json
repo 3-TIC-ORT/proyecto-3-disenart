@@ -1,12 +1,12 @@
 [
   {
     "username": "britos",
-    "color": "negro",
+    "color": "null",
     "talle": "S",
     "material": "algodon",
-    "nombret": "",
-    "imagen": "../imagenes/buzonegro.png",
-    "nombrep": "",
+    "nombret": "tp1",
+    "imagen": "",
+    "nombrep": "pablo",
     "lugarn": "arriba",
     "colorn": "black",
     "colorl": "blancol",
@@ -16,16 +16,17 @@
     "subtextoi": "",
     "subtextop": "arriba-adelante",
     "fotop": "nada",
-    "foto": "Captura de pantalla 2024-10-03 091329.png"
+    "foto": "",
+    "url": ""
   },
   {
     "username": "britos",
     "color": "azul",
     "talle": "S",
     "material": "algodon",
-    "nombret": "",
+    "nombret": "Versión de: ",
     "imagen": "../imagenes/buzoazul.png",
-    "nombrep": "",
+    "nombrep": "pone tu nombre ",
     "lugarn": "arriba",
     "colorn": "black",
     "colorl": "blancol",
@@ -35,15 +36,16 @@
     "subtextoi": "",
     "subtextop": "arriba-adelante",
     "fotop": "atras",
-    "foto": "Captura de pantalla 2024-10-03 091329.png"
+    "foto": "Captura de pantalla 2024-10-03 091329.png",
+    "url": ""
   },
   {
     "username": "britos",
-    "color": "azul",
+    "color": "celeste",
     "talle": "S",
     "material": "algodon",
-    "nombret": "",
-    "imagen": "../imagenes/buzoazul.png",
+    "nombret": "peopo",
+    "imagen": "../imagenes/buzoceleste.png",
     "nombrep": "",
     "lugarn": "arriba",
     "colorn": "black",
@@ -54,25 +56,7 @@
     "subtextoi": "",
     "subtextop": "arriba-adelante",
     "fotop": "nada",
-    "foto": "Captura de pantalla 2024-10-03 091329.png"
-  },
-  {
-    "username": "britos",
-    "color": "negro",
-    "talle": "S",
-    "material": "algodon",
-    "nombret": "Versión de: ",
-    "imagen": "../imagenes/buzonegro.png",
-    "nombrep": "pone tu nombre ",
-    "lugarn": "arriba",
-    "colorn": "black",
-    "colorl": "blancol",
-    "formato": "diagonal",
-    "posicionT": "arriba-adelante",
-    "texto": "",
-    "subtextoi": "",
-    "subtextop": "arriba-adelante",
-    "fotop": "nada",
-    "foto": ""
+    "foto": "",
+    "url": ""
   }
 ]

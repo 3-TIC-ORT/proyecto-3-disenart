@@ -153,22 +153,33 @@ loadDesignsButton.addEventListener("click", () => {
                     colorSelect.value = diseño.color;
                     materialSelect.value = diseño.material;
                     nombreTrabajo.value = "Versión de: ";
-                    nombrePersonaInput.value = "pone tu nombre "
+                    nombrePersonaInput.value = "pone tu nombre ";
                     positionSelect.value = diseño.lugarn;
                     colorLetraSelect.value = diseño.colorn;
                     colorLineaSelect.value = diseño.colorl;
-                    formatoSelect.value = diseño.formato
-                    posicionTextoSelect.value = diseño.posicionT
-                    textoPersonalizadoInput.value = diseño.texto
-                    talleSelect.value = diseño.talle
-                    posicionsubTextoSelect.value = diseño.subtextop
-                    subtextoPersonalizadoInput.value = diseño.subtextoi
-                    posicionFOTOSelect.value = diseño.fotop
-                    uploadImageCustom.value = diseño.foto
-                    urlC.value = diseño.url
-                    
+                    formatoSelect.value = diseño.formato;
+                    posicionTextoSelect.value = diseño.posicionT;
+                    textoPersonalizadoInput.value = diseño.texto;
+                    talleSelect.value = diseño.talle;
+                    posicionsubTextoSelect.value = diseño.subtextop;
+                    subtextoPersonalizadoInput.value = diseño.subtextoi;
+                    posicionFOTOSelect.value = diseño.fotop;
+                    urlC.value = diseño.url;
 
-                    const imageUrl = colorToImageMap[diseño.color && diseño.foto];
+                    const imagePath = `../imagenesa/${diseño.foto}`;
+                    const imageContainer = document.getElementById("imagencus");
+                    imageContainer.innerHTML = ""; 
+
+                    const imageElement = document.createElement('img');
+                    imageElement.src = imagePath;
+                    imageElement.style.maxWidth = '100%'; 
+                    imageElement.style.height = 'auto';
+
+                    imageContainer.appendChild(imageElement);
+                    imageContainer.style.display = "block";
+
+                    const imageUrl = colorToImageMap[diseño.color];
+                    
                     if (imageUrl) {
                         imagenColor.src = imageUrl;
                         imagenColor.style.display = "block";  
@@ -176,23 +187,13 @@ loadDesignsButton.addEventListener("click", () => {
                         imagenColor.src = "";
                         imagenColor.style.display = "none";  
                     }
-                    const imagePath = `../imagenesa/${diseño.foto}`; 
-                    imagenColor.src = imagePath;
-                    imagenColor.style.display = "block"; 
-
                 });
 
                 li.addEventListener("dblclick", () => {
-                    const confirmation = confirm("¿Deseas borrar este diseño?");
+                    const confirmation = confirm("¿Deseas borrar este diseño de la lista?");
                     if (confirmation) {
-                        postData('borrarDiseno', { username: loggedInUser, nombretp: diseño.nombret }, (response) => {
-                            if (response.ok) {
-                                alert("Diseño borrado");
-                                li.remove();
-                            } else {
-                                alert("Error al borrar el diseño");
-                            }
-                        });
+                        li.remove();
+                        alert("Diseño eliminado de la lista.");
                     }
                 });
 
@@ -203,6 +204,9 @@ loadDesignsButton.addEventListener("click", () => {
         }
     });
 });
+
+uploadImageCustom.value = ''; 
+
 
 uploadImageButton.addEventListener("click", () => {
     const file = uploadImageInput.files[0]; 
