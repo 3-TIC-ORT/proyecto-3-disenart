@@ -90,8 +90,9 @@ saveDesignButton.addEventListener("click", () => {
     const talle = talleSelect.value;
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
-    const imageUrl = colorToImageMap[color] || uploadedImageBase64 || ""; 
+    const imageUrl = colorToImageMap[color] || ""; 
     const nombrePersona = nombrePersonaInput.value;  
+    const fileName = uploadedFileName || "";
     const positionOption = positionSelect.value;
     const selectedColor = colorLetraSelect.value; 
     const colorLinea = colorLineaSelect.value;
@@ -100,6 +101,8 @@ saveDesignButton.addEventListener("click", () => {
     const textoPersonalizado = textoPersonalizadoInput.value
     const subtextoPersonalizado = subtextoPersonalizadoInput.value
     const posicionsubTexto = posicionsubTextoSelect.value
+    const posicionfoto = posicionFOTOSelect.value
+    
 
     if (loggedInUser) {
         
@@ -118,7 +121,9 @@ saveDesignButton.addEventListener("click", () => {
             posicionTexto,
             textoPersonalizado,
             posicionsubTexto,
-            subtextoPersonalizado
+            subtextoPersonalizado,
+            posicionfoto,
+            fileName
 
         }, (response) => {
             if (response.ok) {
@@ -156,7 +161,9 @@ loadDesignsButton.addEventListener("click", () => {
                     talleSelect.value = diseño.talle
                     posicionsubTextoSelect.value = diseño.subtextop
                     subtextoPersonalizadoInput.value = diseño.subtextoi
-
+                    posicionFOTOSelect.value = diseño.fotop
+                    uploadImageCustom.value = diseños.foto
+                    
 
                     const imageUrl = colorToImageMap[diseño.color];
                     if (imageUrl) {
@@ -244,22 +251,24 @@ printDesignButton.addEventListener("click", () => {
     const talle = talleSelect.value;
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
-    const imageUrl = colorToImageMap[color] || "";  
+    const imageUrl = colorToImageMap[color]  || ""; 
     const nombrePersona = nombrePersonaInput.value;  
-    const positionOption = positionSelect.value; 
-    const selectedColor = colorLetraSelect.value;
-    const formato = formatoSelect.value
+    const positionOption = positionSelect.value;
+    const selectedColor = colorLetraSelect.value; 
     const colorLinea = colorLineaSelect.value;
+    const formato = formatoSelect.value
     const posicionTexto = posicionTextoSelect.value
     const textoPersonalizado = textoPersonalizadoInput.value
-    const posicionsubTexto = posicionsubTextoSelect.value
     const subtextoPersonalizado = subtextoPersonalizadoInput.value
+    const posicionsubTexto = posicionsubTextoSelect.value
+    const posicionfoto = posicionFOTOSelect.value
+    const fileName = uploadedFileName || "";
 
 
 
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado, posicionsubTexto, subtextoPersonalizado }, (response) => {
+        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado, posicionsubTexto, subtextoPersonalizado, posicionfoto, fileName }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
@@ -534,6 +543,7 @@ aplicarColorButton.addEventListener("click", () => {
 });
 
 let uploadedImageBase64 = "";  
+let uploadedFileName = "";
 
 uploadCustomImageButton.addEventListener("click", () => {
     const file = uploadImageCustomInput.files[0];
@@ -542,8 +552,9 @@ uploadCustomImageButton.addEventListener("click", () => {
         const reader = new FileReader();
 
         reader.onloadend = function() {
-             
-            uploadedImageBase64 = reader.result;  
+            const base64Image = reader.result;
+            uploadedImageBase64 = reader.result; 
+            uploadedFileName = file.name; 
 
             const imageElement = document.createElement('img');
             imageElement.src = base64Image;
@@ -557,9 +568,9 @@ uploadCustomImageButton.addEventListener("click", () => {
             
             const posicionSelect = document.getElementById("posicionFOTOSelect").value;
             if (posicionSelect === "atras") {
-                imageContainer.style.left = "340px";  
+                imageContainer.style.left = "390px";  
             } else if (posicionSelect === "adelante") {
-                imageContainer.style.left = "100px"; 
+                imageContainer.style.left = "140px"; 
             }
         };
 
