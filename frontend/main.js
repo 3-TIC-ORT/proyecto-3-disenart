@@ -35,7 +35,7 @@ const posicionsubTexto = document.getElementById ("posicionsubTextoSelect");
 const subtexto = document.getElementById("subtexto");
 const uploadCustomImageButton = document.getElementById('uploadCustomImageButton');
 const uploadImageCustomInput = document.getElementById('uploadImageCustom');
-
+const guardarImagenButton = document.getElementById("guardarImagenButton")
 
 
 let loggedInUser = null;
@@ -90,7 +90,7 @@ saveDesignButton.addEventListener("click", () => {
     const talle = talleSelect.value;
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
-    const imageUrl = colorToImageMap[color] || "";  
+    const imageUrl = colorToImageMap[color] || uploadedImageBase64 || ""; 
     const nombrePersona = nombrePersonaInput.value;  
     const positionOption = positionSelect.value;
     const selectedColor = colorLetraSelect.value; 
@@ -156,6 +156,7 @@ loadDesignsButton.addEventListener("click", () => {
                     talleSelect.value = diseño.talle
                     posicionsubTextoSelect.value = diseño.subtextop
                     subtextoPersonalizadoInput.value = diseño.subtextoi
+
 
                     const imageUrl = colorToImageMap[diseño.color];
                     if (imageUrl) {
@@ -532,6 +533,8 @@ aplicarColorButton.addEventListener("click", () => {
     }
 });
 
+let uploadedImageBase64 = "";  
+
 uploadCustomImageButton.addEventListener("click", () => {
     const file = uploadImageCustomInput.files[0];
 
@@ -539,8 +542,8 @@ uploadCustomImageButton.addEventListener("click", () => {
         const reader = new FileReader();
 
         reader.onloadend = function() {
-            const base64Image = reader.result;
-            const fileName = file.name;
+             
+            uploadedImageBase64 = reader.result;  
 
             const imageElement = document.createElement('img');
             imageElement.src = base64Image;
@@ -551,26 +554,38 @@ uploadCustomImageButton.addEventListener("click", () => {
             imageContainer.innerHTML = ""; 
             imageContainer.appendChild(imageElement);
 
-            if (loggedInUser) {
-                postData('uploadImagecustom', {
-                    username: loggedInUser,
-                    image: base64Image,
-                    fileName: fileName,
-                    folder: 'imagenesa'
-                }, (response) => {
-                    if (response.ok) {
-                        alert("Imagen subida exitosamente a la carpeta imagenesa");
-                    } else {
-                        alert("Error al subir la imagen");
-                    }
-                });
-            } else {
-                alert("Debes iniciar sesión para subir imágenes.");
+            
+            const posicionSelect = document.getElementById("posicionFOTOSelect").value;
+            if (posicionSelect === "atras") {
+                imageContainer.style.left = "340px";  
+            } else if (posicionSelect === "adelante") {
+                imageContainer.style.left = "100px"; 
             }
         };
 
         reader.readAsDataURL(file);
     } else {
         alert("Selecciona un archivo de imagen.");
+    }
+});
+
+guardarImagenButton.addEventListener("click", () => {
+    if (uploadedImageBase64 && loggedInUser) {
+        const fileName = uploadImageCustomInput.files[0].name;
+
+        postData('uploadImagecustom', {
+            username: loggedInUser,
+            image: uploadedImageBase64,
+            fileName: fileName,
+            folder: 'imagenesa'
+        }, (response) => {
+            if (response.ok) {
+                alert("Imagen guardada exitosamente en la carpeta imagenesa.");
+            } else {
+                alert("Error al guardar la imagen.");
+            }
+        });
+    } else {
+        alert("No se ha adjuntado ninguna imagen o no has iniciado sesión.");
     }
 });

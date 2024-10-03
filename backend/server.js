@@ -45,7 +45,7 @@ function guardarDiseno(data) {
     let diseños = JSON.parse(fs.readFileSync('../data/diseños.json', 'utf-8'));
 
     
-    diseños.push({ username: data.username, color: data.color, talle: data.talle, material: data.material, nombret: data.nombretp, imagen: data.imageUrl, nombrep: data.nombrePersona, lugarn: data.positionOption, colorn: data.selectedColor, colorl: data.colorLinea, formato: data.formato, posicionT: data.posicionTexto, texto: data.textoPersonalizado, subtextoi: data.subtextoPersonalizado, subtextop: data.posicionsubTexto     });
+    diseños.push({ username: data.username, color: data.color, talle: data.talle, material: data.material, nombret: data.nombretp, imagen: data.imageUrl || uploadedImageBase64 , nombrep: data.nombrePersona, lugarn: data.positionOption, colorn: data.selectedColor, colorl: data.colorLinea, formato: data.formato, posicionT: data.posicionTexto, texto: data.textoPersonalizado, subtextoi: data.subtextoPersonalizado, subtextop: data.posicionsubTexto     });
     
     fs.writeFileSync('../data/diseños.json', JSON.stringify(diseños, null, 2));
     console.log("Diseño guardado exitosamente");
@@ -126,5 +126,6 @@ function subirImagencustom(data) {
         return { ok: false, message: "La carpeta 'imagenes' no existe" };
     }
 }
+
 
 startServer();
