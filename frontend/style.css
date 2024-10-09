@@ -3,3 +3,7 @@ body {
     background-size: cover;
 }
 
+#contenidoc {
+    display: none;
+}
+
