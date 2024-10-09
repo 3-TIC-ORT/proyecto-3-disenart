@@ -3,6 +3,17 @@ body {
     background-size: cover;
 }
 
+.logodos {
+    background: url('pantallasD/partearriba.png') no-repeat center center;
+    width: 100%; 
+    height: 170px; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 10; 
+}
+
+
 #contenidoc {
     display: none;
 }
