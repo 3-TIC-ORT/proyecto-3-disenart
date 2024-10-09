@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>diseñart</title>
+    <link rel="stylesheet" href="estilo.js">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="pasar">Empezar</button>
+
+    <div id="contenidoc" class="contenidoc">
     <h2>Registro</h2>
     <input type="text" id="registerUsername" placeholder="Usuario">
     <input type="password" id="registerPassword" placeholder="Contraseña">
@@ -156,8 +161,12 @@
     <h1>Diseños creados hasta ahora</h1> 
     <ul id="designList"></ul>
 
+</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>
     <script src="socket.js"></script>
     <script type="module" src="main.js"></script>
+    <script src="estilo.js"></script>
+
 </body>
 </html>
