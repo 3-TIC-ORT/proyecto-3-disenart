@@ -7,3 +7,22 @@ body {
     display: none;
 }
 
+#formregistro{
+    display: none;
+}
+
+#formsecion{
+    display: none;
+}
+
+
+.pasar{
+    border-radius: 20px;
+    color: white;
+    background-color: green;
+    margin-left: 500px;
+    margin-top: 400px;
+    width: 160px;
+    height: 70px;
+    font-size: 20px;
+}
