@@ -1,24 +1,94 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #87CEFA; 
+}
+
 body {
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
     background: url('../pantallasD/1.png') no-repeat center center fixed;
     background-size: cover;
 }
 
+
 .logodos{
-    background: url('pantallasD/partearriba.png');
+    background: url('pantallasD/partearriba.png')no-repeat center center fixed;
     width: max-content;
     height: 170px;
+}
+
+.loginButton{
+    border-radius: 15px;
+    color: white;
+    background-color: green;
+    width: 70px;
+    height: 50px;
+    font-size: 10px;
+}
+
+.registerButton{
+    border-radius: 15px;
+    color: white;
+    background-color: green;
+    width: 70px;
+    height: 50px;
+    font-size: 10px;
+}
+
+.cuentae{
+    border-radius: 15px;
+    color: white;
+    background-color: green;
+    width: 70px;
+    height: 50px;
+    font-size: 10px;
 }
 
 #contenidoc {
     display: none;
 }
 
+.registerUsername{
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+}
+.registerPassword{
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
 #formregistro{
     display: none;
+    justify-content: center;
+    margin-top: 200px;
+    background-color: blue;
+    width: 500px;
+    margin-left: 400px;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+
 }
 
 #formsecion{
     display: none;
+    margin-top: 200px;
+    background-color: blue;
+    width: 500px;
+    margin-left: 400px;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
 }
 
 
@@ -32,3 +102,4 @@ body {
     height: 70px;
     font-size: 20px;
 }
+
