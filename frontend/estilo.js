@@ -29,33 +29,32 @@ btr.addEventListener("click", () => {
     }
 });
 
-bts.addEventListener("click", () => {
+bts.addEventListener("click", confirmarUsuario);
+
+function confirmarUsuario() {
     const username = loginUsernameInput.value.trim();
     const password = loginPasswordInput.value.trim();
 
     if (username && password) {
-        postData('login', { username, password }, (usuarios) => {
-            let usuarioValido = false;
-
-            usuarios.forEach((user) => {
-                if (user.username === username && user.password === password) {
-                    usuarioValido = true;
-                }
-            });
-
-            if (usuarioValido) {
+        postData('login', { username, password }, (response) => {
+            console.log("Datos recibidos:", response);
+            
+            if (response.ok) {
                 alert("Login exitoso");
                 contenedor.style.display = "block";
                 formsecion.style.display = "none";
                 document.body.style.background = "white";
             } else {
-                alert("Usuario o contraseña incorrectos.");
+                alert(response.message || "Usuario o contraseña incorrectos.");
             }
         });
     } else {
         alert("Completa todo");
     }
-});
+}
+
+
+
 
 linki.addEventListener("click", () => {
     formsecion.style.display = "block";
