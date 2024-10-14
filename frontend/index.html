@@ -28,9 +28,11 @@
 
     <div id="contenidoc" class="contenidoc"> 
     
-    <div class="logodos"></div>
+    <div class="logodos">
+        <h1>Menu de diseño</h1>
+    </div>
 
-    <h2>Diseños</h2>
+    
     <img id="buzoImage" src="" alt="Imagen del buzo" style="display:none; width: 500px; height: 300px;">
     <div id="nameOverlay" style="position: absolute; top: 315px; left: 28%; transform: translateX(-50%); font-size: 24px; font-weight: bold; z-index: 1;"></div>
     <div id="imagencus" style="position: absolute; top: 355px; left: 140px; transform: translateX(-50%); font-size: 24px; font-weight: bold; z-index: 1; width: 135px; height: 230px;"></div>
@@ -40,6 +42,8 @@
 
     <br> <br> <br> <br>
 
+    <div class="cuestionario">
+
     <label for="nombrePersona">Nombre de la persona:</label>
     <input type="text" id="nombrePersona" placeholder="Nombre">
     <button id="addNameButton">Agregar Nombre</button>
@@ -48,6 +52,7 @@
         <option value="arriba">atras arriba</option>
         <option value="abajo">atras abajo</option>
     </select>
+    <br>
 
     <label for="textoPersonalizado">texto para agregar</label>
     <input id="textoPersonalizadoInput"placeholder="Escribe tu texto aquí">
@@ -105,14 +110,14 @@
         <option value="celeste">celeste</option>
         <option value="naranja">naranja</option>
     </select>
-
+<br>
     <label for="talleSelect">Talle:</label>
     <select id="talleSelect">
         <option value="S">S</option>
         <option value="M">M</option>
         <option value="L">L</option>
     </select>
-
+<br>
     <label for="formatoSelect">Formato:</label>
     <select id="formatoSelect">
         <option value="liso">liso</option>
@@ -121,7 +126,7 @@
         <option value="ben10">linea vertical</option>
     </select>
     <button id="agregarFormatoButton">Agregar</button>
-<br>
+
     <label for="colorLineaSelect">Color de linea:</label>
     <select id="colorLineaSelect">
         <option value="blancol">Blanco</option>
@@ -141,8 +146,11 @@
     </select>
 
     <button id="saveDesignButton">Guardar Diseño</button>
+    <br>
     <button id="loadDesignsButton">Ver Diseños</button> 
+    <br>
     <button id="clearDesignsButton">Borrar Diseños</button>
+    <br>
     <button id="printDesignButton">Mandar a Imprimir</button>
     <br> <br>
     <label for="uploadImage">GUARDA LA FOTO DE TU PROYECTO (captura de pantalla):</label>
@@ -163,13 +171,16 @@
         <option value="adelante">adelante</option>
     </select>
     <br>
+    <br>
     <label for="urlC"> si usas la misma imagen que alguien de tu grupo pone el url:</label>
     <input id="urlC">
     
     <br><br>
+    <div class="listad">
     <h1>Diseños creados hasta ahora</h1> 
     <ul id="designList"></ul>
-
+</div>
+</div>
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>

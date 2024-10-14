@@ -43,7 +43,7 @@ function confirmarUsuario() {
                 alert("Login exitoso");
                 contenedor.style.display = "block";
                 formsecion.style.display = "none";
-                document.body.style.background = "white";
+                document.body.style.background = "#87CEF";
             } else {
                 alert(response.message || "Usuario o contraseña incorrectos.");
             }

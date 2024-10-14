@@ -14,10 +14,19 @@ body {
 }
 
 
+.listad{
+    margin-left: 450px;
+}
+
 .logodos{
-    background: url('pantallasD/partearriba.png')no-repeat center center fixed;
+
     width: max-content;
-    height: 170px;
+    height: 220px;
+    color: rgb(88, 88, 88);
+    font-family: monospace;
+    font-size: x-large;
+    margin-left: 500px;
+
 }
 
 .loginButton{
@@ -63,7 +72,12 @@ body {
 
 
 
-
+.cuestionario{
+    margin-left: 20px;
+    font-size: large;
+    color: rgb(88, 88, 88);
+    font-family: fantasy;
+}
 
 
 
