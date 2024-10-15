@@ -9,7 +9,7 @@ body {
     min-height: 100vh; 
     margin: 0;
     padding: 0;
-    background: url('../pantallasD/1.png') no-repeat center center fixed;
+    background: url('../pantallasD/fotox.png') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -22,7 +22,7 @@ body {
 
     width: max-content;
     height: 220px;
-    color: rgb(88, 88, 88);
+    color: rgb(0, 0, 0);
     font-family: monospace;
     font-size: x-large;
     margin-left: 500px;
@@ -62,11 +62,11 @@ body {
 
 .registerUsername{
     color: rgb(0, 0, 0);
-    border-radius: 15px;
+    border-color: white;
 }
 .registerPassword{
     color: rgb(0, 0, 0);
-    border-radius: 15px;
+    border-color: white;
 }
 
 
@@ -75,7 +75,7 @@ body {
 .cuestionario{
     margin-left: 20px;
     font-size: large;
-    color: rgb(88, 88, 88);
+    color: black;
     font-family: fantasy;
 }
 
@@ -118,18 +118,35 @@ body {
 }
 
 .cuestionario button {
-  
+    border-radius: 5px;
+    background-color: rgb(54, 54, 223);
+    border-color: white;
+    color: white;
 }
 
 .cuestionario button:hover {
-  
+    background-color: rgb(103, 103, 248);
+    border-color: white;
+    color: white;
 }
 
 
 .cuestionario select {
- 
+    border-radius: 5px;
+    background-color: rgb(54, 54, 223);
+    border-color: white;
+    color: white;
 }
 
 .cuestionario select:hover {
- 
+    background-color: rgb(103, 103, 248);
+    border-color: white;
+    color: white;
+}
+
+.cuestionario input {
+    border-radius: 5px;
+    background-color: rgb(132, 132, 243);
+    border-color: rgb(255, 255, 255);
+    color: white;
 }
