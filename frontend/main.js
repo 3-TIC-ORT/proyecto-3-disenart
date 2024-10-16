@@ -75,6 +75,12 @@ loginButton.addEventListener("click", () => {
     }
 });
 
+loginButton.addEventListener("click", () => {
+    const nombreu = loginUsernameInput.value;
+    document.getElementById("usuarioc").innerHTML = nombreu;
+});
+
+
 const colorToImageMap = {
     negro: "../imagenes/buzonegro.png",
     azul: "../imagenes/buzoazul.png",
