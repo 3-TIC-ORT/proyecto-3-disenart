@@ -80,6 +80,10 @@ loginButton.addEventListener("click", () => {
     document.getElementById("usuarioc").innerHTML = nombreu;
 });
 
+const userc = "./pantallasD/usuarioimg.png"
+
+
+
 
 const colorToImageMap = {
     negro: "../imagenes/buzonegro.png",

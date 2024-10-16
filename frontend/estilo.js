@@ -3,7 +3,7 @@ const btr = document.getElementById("registerButton");
 const contenedor = document.getElementById("contenidoc");
 const bts = document.getElementById("loginButton");
 const linki = document.getElementById("cuentae");
-
+const usuarioElemento = document.getElementById('usuarioc');
 const usernameInput = document.getElementById("registerUsername");
 const passwordInput = document.getElementById("registerPassword");
 const loginUsernameInput = document.getElementById("loginUsername");
@@ -14,6 +14,12 @@ bti.addEventListener("click", () => {
     formregistro.style.display = "block";
     bti.style.display = "none";
     document.body.style.background = "#87CEFA";
+});
+
+usuarioElemento.addEventListener("click", () => {
+    formsecion.style.display = "block";
+    contenedor.style.display = "none";
+    document.body.style.background = "#87CEF";
 });
 
 btr.addEventListener("click", () => {

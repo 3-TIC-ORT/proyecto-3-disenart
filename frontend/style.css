@@ -16,6 +16,14 @@ body {
 
 .usuarioc{
     position: absolute;
+    margin-left: 1200px;
+    margin-top: 0px;
+}
+
+.imgdeusuarioc{
+    position: absolute;
+    margin-left: 1130px;
+    margin-top: 0px;
 }
 
 .listad{
