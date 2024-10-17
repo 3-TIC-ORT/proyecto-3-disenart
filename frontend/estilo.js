@@ -1,5 +1,4 @@
 const bti = document.getElementById("pasar");
-const btr = document.getElementById("registerButton");
 const contenedor = document.getElementById("contenidoc");
 const bts = document.getElementById("loginButton");
 const linki = document.getElementById("cuentae");
@@ -10,7 +9,13 @@ const loginUsernameInput = document.getElementById("loginUsername");
 const loginPasswordInput = document.getElementById("loginPassword");
 const showPasswordButton = document.getElementById('showPassword');
 const showLoginPasswordButton = document.getElementById('showLoginPassword');
-const flechaa = document.getElementById("flechaa")
+const flechaa = document.getElementById("flechaa");
+const menud = document.getElementById("menud");
+const diseñosg = document.getElementById("diseñosg");
+const fn = document.getElementById("fn");
+const fm = document.getElementById("fm");
+
+
 
 formregistro.style.display = "none";
 
@@ -26,18 +31,7 @@ usuarioElemento.addEventListener("click", () => {
     document.body.style.background = "none";
 });
 
-btr.addEventListener("click", () => {
-    const username = usernameInput.value.trim();
-    const password = passwordInput.value.trim();
 
-    if (username && password) {
-        formregistro.style.display = "none";
-        formsecion.style.display = "block";
-        document.body.style.background = "none";
-    } else {
-        alert("Por favor, completa todos los campos.");
-    }
-});
 
 bts.addEventListener("click", confirmarUsuario);
 
@@ -51,9 +45,9 @@ function confirmarUsuario() {
             
             if (response.ok) {
                 alert("Login exitoso");
-                contenedor.style.display = "block";
+                menu.style.display = "block";
                 formsecion.style.display = "none";
-                document.body.style.background = "#346280";
+                document.body.style.background = "none";
                 
             } else {
                 alert(response.message || "Usuario o contraseña incorrectos.");
@@ -104,5 +98,30 @@ showLoginPasswordButton.addEventListener('mouseleave', function() {
 flechaa.addEventListener("click", () => {
     formregistro.style.display = "block";
     formsecion.style.display =  "none";
+    document.body.style.background = "none";
+});
+
+
+menud.addEventListener("click", () => {
+    contenidoc.style.display = "block";
+    menu.style.display =  "none";
+    
+});
+
+diseñosg.addEventListener("click", () => {
+    archivera.style.display = "block";
+    menu.style.display =  "none";
+    document.body.style.background = "none";
+});
+
+fm.addEventListener("click", () => {
+    archivera.style.display = "none";
+    menu.style.display =  "block";
+    document.body.style.background = "none";
+});
+
+fn.addEventListener("click", () => {
+    contenidoc.style.display = "none";
+    menu.style.display =  "block";
     document.body.style.background = "none";
 });

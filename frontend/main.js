@@ -48,8 +48,12 @@ registerButton.addEventListener("click", () => {
         postData('registro', { username, password }, (response) => {
             if (response.ok) {
                 alert("Registro exitoso");
+
             } else {
                 alert(response.message);
+                formregistro.style.display = "none";
+                formsecion.style.display = "block";
+                document.body.style.background = "none";
             }
         });
     } else {
