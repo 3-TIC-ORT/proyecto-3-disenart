@@ -8,7 +8,10 @@ const usernameInput = document.getElementById("registerUsername");
 const passwordInput = document.getElementById("registerPassword");
 const loginUsernameInput = document.getElementById("loginUsername");
 const loginPasswordInput = document.getElementById("loginPassword");
+const showPasswordButton = document.getElementById('showPassword');
+const showLoginPasswordButton = document.getElementById('showLoginPassword');
 
+formregistro.style.display = "none";
 
 bti.addEventListener("click", () => {
     formregistro.style.display = "block";
@@ -66,3 +69,32 @@ linki.addEventListener("click", () => {
     formsecion.style.display = "block";
     formregistro.style.display = "none";
 });
+
+
+showPasswordButton.addEventListener('mousedown', function() {
+    passwordInput.type = 'text';
+});
+
+showPasswordButton.addEventListener('mouseup', function() {
+    passwordInput.type = 'password';
+});
+
+showPasswordButton.addEventListener('mouseleave', function() {
+    passwordInput.type = 'password';
+});
+
+
+
+
+showLoginPasswordButton.addEventListener('mousedown', function() {
+    loginPasswordInput.type = 'text';
+});
+
+showLoginPasswordButton.addEventListener('mouseup', function() {
+    loginPasswordInput.type = 'password';
+});
+
+showLoginPasswordButton.addEventListener('mouseleave', function() {
+    loginPasswordInput.type = 'password';
+});
+

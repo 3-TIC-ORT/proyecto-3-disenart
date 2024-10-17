@@ -60,12 +60,11 @@ body {
 }
 
 .cuentae{
-    border-radius: 15px;
     color: white;
-    background-color: green;
     width: 70px;
     height: 50px;
-    font-size: 10px;
+    font-size: 15px;
+    margin-left: +20px;
 }
 
 #contenidoc {
@@ -93,9 +92,32 @@ body {
 
 
 
-#formregistro{
-    display: none;
-    justify-content: center;
+#registerButton {
+    width: 150px;  
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: rgb(61, 60, 60);
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: small;
+    margin-left: +170px;
+}
+
+#registerButton:hover {
+    background-color: rgb(129, 252, 118); 
+    color: black;
+    font-size: small;
+
+}
+
+
+
+#formregistro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 200px;
     background-color: blue;
     width: 500px;
@@ -103,8 +125,32 @@ body {
     color: white;
     padding: 15px;
     border-radius: 20px;
-
 }
+
+#formregistro h2 {
+    text-align: center; 
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
+#formregistro input {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+#registerUsername:focus, #registerPassword:focus {
+    outline: none; 
+    box-shadow: none; 
+}
+
+#loginUsername:focus, #loginPassword:focus {
+    outline: none; 
+    box-shadow: none; 
+}
+
 
 #formsecion{
     display: none;
@@ -117,6 +163,38 @@ body {
     border-radius: 20px;
 }
 
+#formsecion input{
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+#formsecion h2 {
+    text-align: center; 
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
+.loginButton{
+    width: 150px;  
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: rgb(61, 60, 60);
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: small;
+    margin-left: +170px;
+}
+
+.loginButton:hover {
+    background-color: rgb(129, 252, 118); 
+    color: black;
+    font-size: small;
+} 
 
 .pasar{
     border-radius: 20px;
@@ -161,4 +239,56 @@ body {
     background-color: rgb(132, 132, 243);
     border-color: rgb(255, 255, 255);
     color: white;
+}
+
+
+
+
+
+.password-container {
+    position: relative;
+    width: 90%; 
+    background-color: white;
+    height: 35px;
+    width: 470px;
+    border-radius: 4px;
+}
+
+#registerPassword {
+    width: 100%;
+    padding-right: 40px; 
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+#showPassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: gray;
+    padding: 0;
+}
+
+#showPassword:active {
+    color: black;
+}
+
+.showPasswordi{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: gray;
+    padding: 0;
+
 }
