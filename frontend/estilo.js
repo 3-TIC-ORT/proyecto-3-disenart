@@ -10,19 +10,20 @@ const loginUsernameInput = document.getElementById("loginUsername");
 const loginPasswordInput = document.getElementById("loginPassword");
 const showPasswordButton = document.getElementById('showPassword');
 const showLoginPasswordButton = document.getElementById('showLoginPassword');
+const flechaa = document.getElementById("flechaa")
 
 formregistro.style.display = "none";
 
 bti.addEventListener("click", () => {
     formregistro.style.display = "block";
     bti.style.display = "none";
-    document.body.style.background = "#87CEFA";
+    document.body.style.background = "none";
 });
 
 usuarioElemento.addEventListener("click", () => {
     formsecion.style.display = "block";
     contenedor.style.display = "none";
-    document.body.style.background = "#87CEF";
+    document.body.style.background = "none";
 });
 
 btr.addEventListener("click", () => {
@@ -32,7 +33,7 @@ btr.addEventListener("click", () => {
     if (username && password) {
         formregistro.style.display = "none";
         formsecion.style.display = "block";
-        document.body.style.background = "#87CEFA";
+        document.body.style.background = "none";
     } else {
         alert("Por favor, completa todos los campos.");
     }
@@ -52,7 +53,8 @@ function confirmarUsuario() {
                 alert("Login exitoso");
                 contenedor.style.display = "block";
                 formsecion.style.display = "none";
-                document.body.style.background = "#87CEF";
+                document.body.style.background = "#346280";
+                
             } else {
                 alert(response.message || "Usuario o contraseña incorrectos.");
             }
@@ -68,6 +70,7 @@ function confirmarUsuario() {
 linki.addEventListener("click", () => {
     formsecion.style.display = "block";
     formregistro.style.display = "none";
+    document.body.style.background = "none";
 });
 
 
@@ -98,3 +101,8 @@ showLoginPasswordButton.addEventListener('mouseleave', function() {
     loginPasswordInput.type = 'password';
 });
 
+flechaa.addEventListener("click", () => {
+    formregistro.style.display = "block";
+    formsecion.style.display =  "none";
+    document.body.style.background = "none";
+});
