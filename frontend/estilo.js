@@ -14,10 +14,35 @@ const menud = document.getElementById("menud");
 const diseñosg = document.getElementById("diseñosg");
 const fn = document.getElementById("fn");
 const fm = document.getElementById("fm");
-
+const loadDesignsButton = document.getElementById("loadDesignsButton");
+const designList = document.getElementById("designList");
+const instruciones = document.getElementById("instrucciones");
 
 
 formregistro.style.display = "none";
+
+bts.addEventListener("click", () => {
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if (username && password) {
+        postData('registro', { username, password }, (response) => {
+            if (response.ok) {
+                alert("Registro exitoso"); 
+                formregistro.style.display = "none";
+                formsecion.style.display = "block";
+                document.body.style.background = "none";
+
+            } else {
+                alert(response.message);
+               
+            }
+        });
+    } else {
+        alert("Completa todo ");
+    }
+});
+
 
 bti.addEventListener("click", () => {
     formregistro.style.display = "block";
@@ -124,4 +149,15 @@ fn.addEventListener("click", () => {
     contenidoc.style.display = "none";
     menu.style.display =  "block";
     document.body.style.background = "none";
+});
+
+loadDesignsButton.addEventListener("click", () => {
+    loadDesignsButton.style.display = "none";
+    instrucciones.style.display =  "block";
+    
+});
+
+designList.addEventListener("click", () => {
+    archivera.style.display = "none";
+    contenidoc.style.display =  "block";
 });

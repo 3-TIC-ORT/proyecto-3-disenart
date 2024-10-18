@@ -12,10 +12,10 @@
 
     <div class="formregistro" id="formregistro">
         <h2>Registro</h2>
-        <input type="text" id="registerUsername" placeholder="Usuario" class="registerUsername">
+        <input type="text" id="registerUsername" placeholder="Usuario" class="registerUsername" required>
         <div class="password-container">
-            <input type="password" id="registerPassword" placeholder="Contraseña" class="registerPassword">
-            <button type="button" id="showPassword" class="showPassword">👁️</button>
+            <input type="password" id="registerPassword" placeholder="Contraseña" class="registerPassword" required>
+            <button type="button" id="showPassword" class="showPassword">👀</button>
         </div>
         <br> <br>
         <button id="registerButton" class="registerButton">Registrarse</button>
@@ -27,11 +27,11 @@
             <img src="../pantallasD/flecha.png" alt="flecha para atras" class="flechaa" id="flechaa" >
         </div>
         <h2>Inicio de Sesión</h2>
-        <input type="text" id="loginUsername" placeholder="Usuario">
+        <input type="text" id="loginUsername" placeholder="Usuario" required>
         
         <div class="password-container">
-            <input type="password" id="loginPassword" placeholder="Contraseña">
-            <button type="button" id="showLoginPassword" class="showPasswordi">👁️</button>
+            <input type="password" id="loginPassword" placeholder="Contraseña" required>
+            <button type="button" id="showLoginPassword" class="showPasswordi">👀</button>
         </div>
     
         <br><br>
@@ -55,7 +55,7 @@
     </div>
 
     <div id="contenidoc" class="contenidoc"> 
-
+<div class="lda">
         <div>
             <img src="../pantallasD/flecha.png" alt="flecha para atras" class="fn" id="fn" >    
         </div>
@@ -68,9 +68,11 @@
 
     
     <div class="logodos">
-        <h1>Menu de diseño</h1>
+        <h1 class="tmd">Menu de diseño</h1>
+       
     </div>
-
+    <br><br>
+</div>
     
     <img id="buzoImage" src="" alt="Imagen del buzo" style="display:none; width: 500px; height: 300px;">
     <div id="nameOverlay" style="position: absolute; top: 315px; left: 28%; transform: translateX(-50%); font-size: 24px; font-weight: bold; z-index: 1;"></div>
@@ -190,7 +192,7 @@
 
     <button id="saveDesignButton">Guardar Diseño</button>
     <br>
-    <button id="loadDesignsButton">Ver Diseños</button> 
+    
     <br>
     <button id="clearDesignsButton">Borrar Diseños</button>
     <br>
@@ -228,9 +230,18 @@
         <img src="../pantallasD/flecha.png" alt="flecha para atras" class="fm" id="fm" >
     </div>
     <div class="listad">
-    <h1>Diseños creados hasta ahora</h1> 
-    <button id="loadDesignsButton">Ver Diseños</button> 
-    <ul id="designList"></ul>
+    <h1 class="tld">Diseños creados hasta ahora</h1> 
+    <button id="loadDesignsButton" class="bd">Ver Diseños</button>
+    <div class="cuadrilla">
+    <ul id="designList" class="designList"></ul>
+    <div class="instruciones" id="instrucciones">
+        <h1> Instruciones: </h1>
+        <h2> - un clicks entras al diseño</h2>
+        <h2> - dos clicks lo borras de la lista</h2>
+    
+</div>
+</div>
+</div>
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"></script>

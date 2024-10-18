@@ -28,8 +28,8 @@ html, body {
 
 .imgdeusuarioc{
     position: absolute;
-    margin-left: 1150px;
-    margin-top: 0px;
+    margin-left: 1240px;
+    margin-top: -3px;
     width: 30px;
     height: 25px;
 }
@@ -48,14 +48,19 @@ html, body {
 }
 
 .logodos{
-
-    width: max-content;
-    height: 220px;
-    color: rgb(0, 0, 0);
+    
+    width: 1348px ;
+    height: 70px;
     font-family: monospace;
     font-size: x-large;
-    margin-left: 500px;
+    
+    background-color: #030ea7;
+    margin-top: -15px;
 
+}
+
+.tmd{
+    margin-left: 500px;
 }
 
 .loginButton{
@@ -86,6 +91,10 @@ html, body {
 
 #contenidoc {
     display: none;
+    color: white;
+    background: url('../pantallasD/fondito.png') no-repeat center;
+    background-size: cover;
+    
 }
 
 .registerUsername{
@@ -103,8 +112,6 @@ html, body {
 .cuestionario{
     margin-left: 20px;
     font-size: large;
-    color: black;
-    font-family: fantasy;
 }
 
 
@@ -242,6 +249,7 @@ html, body {
     background-color: rgb(54, 54, 223);
     border-color: white;
     color: white;
+    padding: 2px;
 }
 
 .cuestionario button:hover {
@@ -358,6 +366,28 @@ html, body {
 
 .archivera{
     display: none;
+    color: white;
+
+}
+
+.listad{
+    margin-top: 20px;
+}
+
+
+.bd{
+    background-color: #030ea7;
+    border-radius: 4px;
+    color: white;   
+    padding: 8px;
+    margin-top: 200px;
+    margin-left: 140px;
+    border-color: white;
+    font-size: larger;
+}
+
+.bd:hover{
+    background-color: #060a3d;
 }
 
 .imgd{
@@ -404,4 +434,25 @@ html, body {
     border-radius: 4px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
+}
+
+.lda{
+    margin-top: 15px;
+}
+
+.cuadrilla{
+    background-image: url(../pantallasD/pantilla.png);
+    align-self: center;
+    margin-left: -40px;
+    width: 450px;
+    
+}
+.designList{
+    margin-left: 10px;
+}
+
+.instruciones{
+    display: none;
+    position: absolute;
+    margin-left: 550px;
 }

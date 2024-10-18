@@ -47,18 +47,16 @@ registerButton.addEventListener("click", () => {
     if (username && password) {
         postData('registro', { username, password }, (response) => {
             if (response.ok) {
-                alert("Registro exitoso");
-
-            } else {
-                alert(response.message);
                 formregistro.style.display = "none";
                 formsecion.style.display = "block";
                 document.body.style.background = "none";
+
+            } else {
+                alert(response.message);
+               
             }
         });
-    } else {
-        alert("Completa todo ");
-    }
+    } 
 });
 
 loginButton.addEventListener("click", () => {
@@ -68,7 +66,6 @@ loginButton.addEventListener("click", () => {
     if (username && password) {
         postData('login', { username, password }, (response) => {
             if (response.ok) {
-                alert("Login exitoso");
                 loggedInUser = username;
             } else {
                 alert(response.message);
