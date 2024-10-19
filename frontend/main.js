@@ -340,7 +340,7 @@ positionSelect.addEventListener("change", () => {
     if (selectedOption === "arriba") {
         nameTopPosition = 315; 
     } else if (selectedOption === "abajo") {
-        nameTopPosition = 450; 
+        nameTopPosition = 470; 
     }
 
     
@@ -354,7 +354,7 @@ colorLetraSelect.addEventListener("change", () => {
 });
 
 let textoTopPosition = 350;
-let textoLeftPosition = 140;  
+let textoLeftPosition = 130;  
 
 posicionTexto.addEventListener("change", () => {
     const selectedOption2 = posicionTexto.value;
@@ -370,13 +370,13 @@ posicionTexto.addEventListener("change", () => {
         textoLeftPosition = 375;  
     } else if (selectedOption2 === "arriba-adelante") {
         textoTopPosition = 330; 
-        textoLeftPosition = 140;  
+        textoLeftPosition = 130;  
     } else if (selectedOption2 === "medio-adelante") {
         textoTopPosition = 380; 
-        textoLeftPosition = 140;  
+        textoLeftPosition = 130;  
     } else if (selectedOption2 === "abajo-adelante") {
-        textoTopPosition = 450; 
-        textoLeftPosition = 140;  
+        textoTopPosition = 470; 
+        textoLeftPosition = 130;  
     }
     
     textoe.style.top = `${textoTopPosition}px`;

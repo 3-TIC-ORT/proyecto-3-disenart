@@ -23,13 +23,13 @@ html, body {
 .usuarioc{
     position: absolute;
     margin-left: 1200px;
-    margin-top: 0px;
+    margin-top: 22px;
 }
 
 .imgdeusuarioc{
     position: absolute;
     margin-left: 1240px;
-    margin-top: -3px;
+    margin-top: 20px;
     width: 30px;
     height: 25px;
 }
@@ -49,18 +49,19 @@ html, body {
 
 .logodos{
     
-    width: 1348px ;
+    width: 100dvw;
     height: 70px;
     font-family: monospace;
     font-size: x-large;
-    
     background-color: #030ea7;
-    margin-top: -15px;
+    margin-top: -20px;
 
 }
 
 .tmd{
     margin-left: 500px;
+    margin-top: 10px;
+    position: absolute;
 }
 
 .loginButton{
@@ -94,7 +95,7 @@ html, body {
     color: white;
     background: url('../pantallasD/fondito.png') no-repeat center;
     background-size: cover;
-    
+    overflow-x: hidden;
 }
 
 .registerUsername{
@@ -112,8 +113,15 @@ html, body {
 .cuestionario{
     margin-left: 20px;
     font-size: large;
+    background-color: #060a3d;
+    width: max-content;
+    padding: 5px;
+    border-radius: 3px;
 }
 
+.cdi{
+    height: 10px;
+}
 
 
 #registerButton {
@@ -253,7 +261,7 @@ html, body {
 }
 
 .cuestionario button:hover {
-    background-color: rgb(103, 103, 248);
+    background-color: rgb(84, 84, 134);
     border-color: white;
     color: white;
 }
@@ -261,7 +269,7 @@ html, body {
 
 .cuestionario select {
     border-radius: 5px;
-    background-color: rgb(54, 54, 223);
+    background-color: rgb(67, 67, 116);
     border-color: white;
     color: white;
 }
@@ -274,7 +282,7 @@ html, body {
 
 .cuestionario input {
     border-radius: 5px;
-    background-color: rgb(132, 132, 243);
+    background-color: rgb(255, 255, 255);
     border-color: rgb(255, 255, 255);
     color: white;
 }
@@ -429,7 +437,7 @@ html, body {
 
 .fn{
     position: absolute;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 10px;
     border-radius: 4px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
