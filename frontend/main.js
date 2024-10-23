@@ -53,7 +53,7 @@ registerButton.addEventListener("click", () => {
 
             } else {
                 alert(response.message);
-               
+            
             }
         });
     } 
