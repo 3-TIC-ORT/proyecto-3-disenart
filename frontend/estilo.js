@@ -17,6 +17,7 @@ const fm = document.getElementById("fm");
 const loadDesignsButton = document.getElementById("loadDesignsButton");
 const designList = document.getElementById("designList");
 const instruciones = document.getElementById("instrucciones");
+const mf = document.getElementById("mf");
 
 
 formregistro.style.display = "none";
@@ -160,4 +161,10 @@ loadDesignsButton.addEventListener("click", () => {
 designList.addEventListener("click", () => {
     archivera.style.display = "none";
     contenidoc.style.display =  "block";
+});
+
+mf.addEventListener("click", () => {
+    formsecion.style.display = "block";
+    menu.style.display =  "none";
+    document.body.style.background = "none";
 });

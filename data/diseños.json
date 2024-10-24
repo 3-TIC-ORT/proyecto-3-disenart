@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "username": "britos",
+    "color": "negro",
+    "talle": "M",
+    "material": "algodon",
+    "nombret": "ortxxiiii",
+    "imagen": "../imagenes/buzonegro.png",
+    "nombrep": "britos",
+    "lugarn": "arriba",
+    "colorn": "white",
+    "colorl": "negrol",
+    "formato": "medio",
+    "posicionT": "medio-adelante",
+    "texto": "egesados",
+    "subtextoi": "ort",
+    "subtextop": "abajo-atras",
+    "fotop": "nada",
+    "foto": "",
+    "url": ""
+  }
+]
