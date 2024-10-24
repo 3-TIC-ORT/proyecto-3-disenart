@@ -463,7 +463,7 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco1.src = newSrc;
             recBlanco1.style.position = "absolute";
             recBlanco1.style.top = "380px";
-            recBlanco1.style.left = "75px";
+            recBlanco1.style.left = "63px";
             recBlanco1.style.width = "130px";
             recBlanco1.id = "recBlanco1";
 
@@ -472,7 +472,7 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco2.src = newSrc;
             recBlanco2.style.position = "absolute";
             recBlanco2.style.top = "380px";
-            recBlanco2.style.left = "316px";
+            recBlanco2.style.left = "314px";
             recBlanco2.style.width = "130px";
             recBlanco2.id = "recBlanco2";
 
@@ -490,13 +490,13 @@ agregarFormatoButton.addEventListener("click", () => {
 
         if (newSrc) {
             
-            recBlanco2 = document.createElement("img");
+            recBlanco1 = document.createElement("img");
             recBlanco1.src = newSrc;
             recBlanco1.style.position = "absolute";
-            recBlanco1.style.top = "380px";
-            recBlanco1.style.left = "40px";
+            recBlanco1.style.top = "400px";
+            recBlanco1.style.left = "15px";
             recBlanco1.style.width = "250px";
-            recBlanco1.style.height = "20px"
+            recBlanco1.style.height = "25px"
             recBlanco1.style.transform = "rotate(-60deg)";
             recBlanco1.id = "recBlanco1";
 
@@ -504,10 +504,10 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco2 = document.createElement("img");
             recBlanco2.src = newSrc;
             recBlanco2.style.position = "absolute";
-            recBlanco2.style.top = "380px";
-            recBlanco2.style.left = "300px";
+            recBlanco2.style.top = "400px";
+            recBlanco2.style.left = "260px";
             recBlanco2.style.width = "250px";
-            recBlanco2.style.height = "20px"
+            recBlanco2.style.height = "25px"
             recBlanco2.style.transform = "rotate(-60deg)";
             recBlanco2.id = "recBlanco2";
 
@@ -524,9 +524,9 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco1.src = newSrc;
             recBlanco1.style.position = "absolute";
             recBlanco1.style.top = "400px";
-            recBlanco1.style.left = "35px";
-            recBlanco1.style.width = "220px";
-            recBlanco1.style.height = "40px"
+            recBlanco1.style.left = "20px";
+            recBlanco1.style.width = "210px";
+            recBlanco1.style.height = "32px"
             recBlanco1.style.transform = "rotate(90deg)";
             recBlanco1.id = "recBlanco1";
 
@@ -535,9 +535,9 @@ agregarFormatoButton.addEventListener("click", () => {
             recBlanco2.src = newSrc;
             recBlanco2.style.position = "absolute";
             recBlanco2.style.top = "390px";
-            recBlanco2.style.left = "286px";
+            recBlanco2.style.left = "266px";
             recBlanco2.style.width = "220px";
-            recBlanco2.style.height = "40px"
+            recBlanco2.style.height = "38px"
             recBlanco2.style.transform = "rotate(90deg)";
             recBlanco2.id = "recBlanco2";
 
