@@ -1,3 +1,22 @@
 [
-
+  {
+    "username": "britos",
+    "color": "blanco",
+    "talle": "S",
+    "material": "algodon",
+    "nombret": "ort2024",
+    "imagen": "../imagenes/buzoblanco.png",
+    "nombrep": "pone tu nombre ",
+    "lugarn": "arriba",
+    "colorn": "black",
+    "colorl": "blancol",
+    "formato": "medio",
+    "posicionT": "arriba-adelante",
+    "texto": "egresados",
+    "subtextoi": "xxiv",
+    "subtextop": "arriba-adelante",
+    "fotop": "nada",
+    "foto": "para agregar",
+    "url": "de la foto agregada"
+  }
 ]
