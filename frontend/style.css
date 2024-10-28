@@ -1,5 +1,5 @@
 html {
-    background: url('../pantallasD/fondito.png') no-repeat center;
+    background: url('../pantallasD/fonditoo.png') no-repeat center;
     background-size: cover;
 }
 
@@ -93,7 +93,7 @@ html, body {
 #contenidoc {
     display: none;
     color: white;
-    background: url('../pantallasD/fondito.png') no-repeat center;
+    background: url('../pantallasD/fonditoo.png') no-repeat center;
     background-size: cover;
     overflow-x: hidden;
 }
@@ -111,12 +111,13 @@ html, body {
 
 
 .cuestionario{
-    margin-left: 20px;
+    margin-left: 100px;
     font-size: large;
     background-color: #060a3d;
     width: max-content;
-    padding: 8px;
-    border-radius: 3px;
+    padding: 20px;
+    border-radius: 20px;
+    opacity: 90%;
 }
 
 .cdi{
@@ -143,8 +144,6 @@ html, body {
     font-size: small;
 
 }
-
-
 
 #formregistro {
     display: flex;
@@ -281,10 +280,11 @@ html, body {
 }
 
 .cuestionario input {
+    margin: 20px;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     border-color: rgb(255, 255, 255);
-    color: white;
+    color: black;
 }
 
 
@@ -385,13 +385,15 @@ html, body {
 
 .bd{
     background-color: #030ea7;
-    border-radius: 4px;
+    border-radius: 18px;
     color: white;   
     padding: 8px;
     margin-top: 200px;
     margin-left: 140px;
     border-color: white;
-    font-size: larger;
+    font-size: 30px;
+    width: 200px;
+    height: 100px;
 }
 
 .bd:hover{
@@ -412,6 +414,10 @@ html, body {
     margin-top: 20px;
 }
 
+.tld{
+font-size: 50px;
+margin-left: 7%;
+}
 .tm{
     margin-left: 8px;
     font-size: 70px;
@@ -463,4 +469,9 @@ html, body {
     display: none;
     position: absolute;
     margin-left: 550px;
+    background-color: #060a3d   ;
+    border-radius: 30px;
+    width: 380px;
+    height: 100px;
+    padding-left: 30px;    
 }

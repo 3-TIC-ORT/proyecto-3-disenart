@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "username": "hola",
+    "color": "blanco",
+    "talle": "S",
+    "material": "algodon",
+    "nombret": "Diseño 1",
+    "imagen": "../imagenes/buzoblanco.png",
+    "nombrep": "seba",
+    "lugarn": "arriba",
+    "colorn": "black",
+    "colorl": "negrol",
+    "formato": "medio",
+    "posicionT": "arriba-adelante",
+    "texto": "PROMO",
+    "subtextoi": "Seba",
+    "subtextop": "abajo-adelante",
+    "fotop": "nada",
+    "foto": "",
+    "url": ""
+  }
+]
