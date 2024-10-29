@@ -363,19 +363,19 @@ posicionTexto.addEventListener("change", () => {
         textoTopPosition = 330; 
         textoLeftPosition = 375;  
     } else if (selectedOption2 === "abajo-atras") {
-        textoTopPosition = 480; 
+        textoTopPosition = 475; 
         textoLeftPosition = 375;  
     } else if (selectedOption2 === "medio-atras") {
-        textoTopPosition = 400; 
+        textoTopPosition = 380; 
         textoLeftPosition = 375;  
     } else if (selectedOption2 === "arriba-adelante") {
         textoTopPosition = 330; 
         textoLeftPosition = 130;  
     } else if (selectedOption2 === "medio-adelante") {
-        textoTopPosition = 380; 
+        textoTopPosition = 375; 
         textoLeftPosition = 130;  
     } else if (selectedOption2 === "abajo-adelante") {
-        textoTopPosition = 470; 
+        textoTopPosition = 475; 
         textoLeftPosition = 130;  
     }
     
@@ -390,31 +390,31 @@ addTexto.addEventListener("click", () => {
     }
 });
 
-let subtextoTopPosition = 340;
-let subtextoLeftPosition = 140;  
+let subtextoTopPosition = 345;
+let subtextoLeftPosition = 130;  
 
 
 posicionsubTexto.addEventListener("change", () => {
     const selectedOption3 = posicionsubTexto.value;
 
     if (selectedOption3 === "arriba-atras") {
-        subtextoTopPosition = 360; 
+        subtextoTopPosition = 345; 
         subtextoLeftPosition = 375;  
     } else if (selectedOption3 === "abajo-atras") {
         subtextoTopPosition = 490; 
         subtextoLeftPosition = 375;  
     } else if (selectedOption3 === "medio-atras") {
-        subtextoTopPosition = 410; 
+        subtextoTopPosition = 395; 
         subtextoLeftPosition = 375;  
     } else if (selectedOption3 === "arriba-adelante") {
-        subtextoTopPosition = 340; 
-        subtextoLeftPosition = 140;  
+        textoTopPosition = 345;
+        subtextoLeftPosition = 30;  
     } else if (selectedOption3 === "medio-adelante") {
         subtextoTopPosition = 390; 
-        subtextoLeftPosition = 140;  
+        subtextoLeftPosition = 130;  
     } else if (selectedOption3 === "abajo-adelante") {
-        subtextoTopPosition = 460; 
-        subtextoLeftPosition = 140;  
+        subtextoTopPosition = 490; 
+        subtextoLeftPosition = 130;  
     }
     
     subtexto.style.top = `${subtextoTopPosition}px`;
@@ -582,7 +582,7 @@ uploadCustomImageButton.addEventListener("click", () => {
 
             const imageElement = document.createElement('img');
             imageElement.src = base64Image;
-            imageElement.style.maxWidth = '100%'; 
+            imageElement.style.maxWidth = '130px'; 
             imageElement.style.height = 'auto';
             
             const imageContainer = document.getElementById("imagencus");
@@ -592,9 +592,10 @@ uploadCustomImageButton.addEventListener("click", () => {
             
             const posicionSelect = document.getElementById("posicionFOTOSelect").value;
             if (posicionSelect === "atras") {
-                imageContainer.style.left = "390px";  
+                imageContainer.style.left = "380px";  
+                imageContainer.style.top = "365px"; 
             } else if (posicionSelect === "adelante") {
-                imageContainer.style.left = "140px"; 
+                imageContainer.style.left = "130px"; 
             }
         };
 
