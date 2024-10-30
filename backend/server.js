@@ -3,21 +3,48 @@ import { onEvent, startServer } from "soquetic";
 
 onEvent('registro', enviarRegistro);
 onEvent('login', enviarLogin);
-onEvent('guardarDiseno', guardarDiseno);
+onEvent('guardarDiseno', guardarDiseno); 
 onEvent('obtenerDisenos', enviarDisenos);
 onEvent('borrarDisenos', borrarDisenos);
 onEvent('mandarAImprimir', mandarAImprimir);
 onEvent('uploadImage', subirImagen);
 onEvent('uploadImagecustom', subirImagencustom);
 
+function guardarDiseno(data) {
+    try {
+        fs.readFile('../data/diseños.json', 'utf-8', (err, content) => {
+            if (err) throw new Error("Error al leer el archivo");
+
+            let diseños = JSON.parse(content);
+
+            const existeDiseno = diseños.filter(d => d.nombret === data.nombretp);
+            if (existeDiseno.length > 0) {
+                console.log("El diseño ya existe");
+                return { ok: false, message: "El diseño ya existe" };
+            }
+
+            diseños.push(data);
+
+            fs.writeFile('../data/diseños.json', JSON.stringify(diseños, null, 2), (err) => {
+                if (err) throw new Error("Error al guardar el diseño");
+                console.log("Diseño guardado exitosamente");
+                return { ok: true, message: "Diseño guardado" };
+            });
+        });
+    } catch (error) {
+        console.error("Error:", error.message);
+        return { ok: false, message: error.message };
+    }
+}
+
 function enviarRegistro(data) {
     let usuarios = JSON.parse(fs.readFileSync('../data/usuarios.json', 'utf-8'));
-    
-    for (let user of usuarios) {
-        if (user.username === data.username) {
-            console.log("ya existe");
-            return { ok: false, message: "ya existe" };
-        }
+
+    const nombresUsuarios = usuarios.map(user => user.username);
+
+    if (nombresUsuarios.includes(data.username)) {
+        console.log("El usuario ya existe");
+        return { ok: false, message: "El usuario ya existe" };
     }
 
     usuarios.push({ username: data.username, password: data.password });
@@ -36,23 +63,16 @@ function enviarLogin(data) {
         }
     }
 
-    console.log("create un cuenta ");
-    return { ok: false, message: "Create una cuenta capo" };
-}
-
-
-function guardarDiseno(data) {
-    let diseños = JSON.parse(fs.readFileSync('../data/diseños.json', 'utf-8'));
-
-    diseños.push({ username: data.username, color: data.color, talle: data.talle, material: data.material, nombret: data.nombretp, imagen: data.imageUrl, nombrep: data.nombrePersona, lugarn: data.positionOption, colorn: data.selectedColor, colorl: data.colorLinea, formato: data.formato, posicionT: data.posicionTexto, texto: data.textoPersonalizado, subtextoi: data.subtextoPersonalizado, subtextop: data.posicionsubTexto, fotop: data.posicionfoto, foto: data.fileName, url: data.urlcompartido  });
-    
-    fs.writeFileSync('../data/diseños.json', JSON.stringify(diseños, null, 2));
-    console.log("Diseño guardado exitosamente");
-    return { ok: true, message: "Diseño guardado" };
+    console.log("Crea una cuenta");
+    return { ok: false, message: "Crea una cuenta capo" };
 }
 
 function enviarDisenos() {
     let diseños = JSON.parse(fs.readFileSync('../data/diseños.json', 'utf-8'));
+
+    const nombresDiseñadores = diseños.map(d => d.username);
+    console.log("Diseñadores:", nombresDiseñadores);
+
     return { ok: true, diseños };
 }
 
@@ -63,28 +83,7 @@ function borrarDisenos() {
 }
 
 function mandarAImprimir(data) {
-    const diseñoParaImprimir = {
-        username: data.username,
-        color: data.color,
-        talle: data.talle,
-        material: data.material,
-        nombretp: data.nombretp,
-        imagen: data.imageUrl,
-        nombrep: data.nombrePersona, 
-        lugarn: data.positionOption,
-        colorl: data.colorLinea,
-        formato: data.formato, 
-        posicionT: data.posicionTexto,
-        texto: data.textoPersonalizad,
-        colorn: data.selectedColor,
-        subtextoi: data.subtextoPersonalizado,
-        subtextop: data.posicionsubTexto,
-        fotop: data.posicionfoto,
-        foto: data.fileName,
-        url: data.urlcompartido
-    };
-
-    fs.writeFileSync('../data/imprimir.json', JSON.stringify(diseñoParaImprimir, null, 2));
+    fs.writeFileSync('../data/imprimir.json', JSON.stringify(data, null, 2));
     console.log("Diseño enviado a imprimir");
     return { ok: true, message: "Diseño enviado a imprimir" };
 }
@@ -97,11 +96,9 @@ function subirImagen(data) {
         return { ok: false, message: "Datos incompletos" };
     }
 
-    
-    const base64Data = image.replace(/^data:image\/\w+;base64,/, ""); 
-    const nombrei = `../imgfin/${fileName}`; 
+    const base64Data = image.replace(/^data:image\/\w+;base64,/, "");
+    const nombrei = `../imgfin/${fileName}`;
 
-    
     fs.writeFileSync(nombrei, base64Data, 'base64');
     console.log(`Imagen subida por ${username} guardada en ${nombrei}`);
     return { ok: true, message: "Imagen guardada", fileName };
@@ -115,8 +112,7 @@ function subirImagencustom(data) {
         return { ok: false, message: "Datos incompletos" };
     }
 
-    const base64Data = image.replace(/^data:image\/\w+;base64,/, ""); 
-
+    const base64Data = image.replace(/^data:image\/\w+;base64,/, "");
     const nombrei = `../imagenesa/${fileName}`;
 
     if (fs.existsSync('../imagenesa')) {
@@ -124,10 +120,9 @@ function subirImagencustom(data) {
         console.log(`Imagen subida por ${username} guardada en ${nombrei}`);
         return { ok: true, message: "Imagen guardada", fileName };
     } else {
-        console.log("La carpeta 'imagenes' no existe");
-        return { ok: false, message: "La carpeta 'imagenes' no existe" };
+        console.log("La carpeta 'imagenesa' no existe");
+        return { ok: false, message: "La carpeta 'imagenesa' no existe" };
     }
 }
-
 
 startServer();
