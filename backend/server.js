@@ -40,9 +40,9 @@ function guardarDiseno(data) {
 function enviarRegistro(data) {
     let usuarios = JSON.parse(fs.readFileSync('../data/usuarios.json', 'utf-8'));
 
-    const nombresUsuarios = usuarios.map(user => user.username);
+    const usuarioExistente = usuarios.filter(user => user.username === data.username);
 
-    if (nombresUsuarios.includes(data.username)) {
+    if (usuarioExistente.length > 0) {
         console.log("El usuario ya existe");
         return { ok: false, message: "El usuario ya existe" };
     }
@@ -52,6 +52,7 @@ function enviarRegistro(data) {
     console.log("Registro exitoso");
     return { ok: true, message: "Registro exitoso" };
 }
+
 
 function enviarLogin(data) {
     let usuarios = JSON.parse(fs.readFileSync('../data/usuarios.json', 'utf-8'));
