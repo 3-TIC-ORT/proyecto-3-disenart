@@ -121,7 +121,11 @@ html, body {
 }
 
 .fotol{
-    
+    position: absolute;
+    margin-left: 600px;
+    margin-top: 170px;
+    width: 450px;
+    height: 300px;
 }
 
 
