@@ -65,7 +65,8 @@ function enviarLogin(data) {
     }
 
     console.log("Crea una cuenta");
-    return { ok: false, message: "Crea una cuenta capo" };
+    return { ok: false,  };
+    
 }
 
 function enviarDisenos() {

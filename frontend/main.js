@@ -38,6 +38,7 @@ const uploadImageCustomInput = document.getElementById('uploadImageCustom');
 const guardarImagenButton = document.getElementById("guardarImagenButton")
 const urlcompartido = document.getElementById("urlC")
 
+
 let loggedInUser = null;
 
 registerButton.addEventListener("click", () => {
@@ -52,8 +53,7 @@ registerButton.addEventListener("click", () => {
                 document.body.style.background = "none";
 
             } else {
-                alert(response.message);
-            
+                document.getElementById("tuParrafo").textContent = "Esta cuenta ya existe";
             }
         });
     } 
@@ -68,13 +68,14 @@ loginButton.addEventListener("click", () => {
             if (response.ok) {
                 loggedInUser = username;
             } else {
-                alert(response.message);
+                document.getElementById("miParrafo").textContent = "Esta cuenta no existe";
             }
         });
     } else {
         alert("Completa todo");
     }
 });
+
 
 loginButton.addEventListener("click", () => {
     const nombreu = loginUsernameInput.value;

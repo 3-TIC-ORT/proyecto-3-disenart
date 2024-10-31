@@ -73,6 +73,12 @@ html, body {
     font-size: 10px;
 }
 
+.miParrafo{
+    font-size: 25px;
+    color: red;
+    margin-left: 29%;
+}
+
 .registerButton{
     border-radius: 15px;
     color: white;
@@ -249,7 +255,7 @@ html, body {
     color: white;
     background-color: rgb(56, 106, 214);
     margin-left: 800px;
-    margin-top: 360px;
+    margin-top: 345px;
     width: 160px;
     height: 70px;
     font-size: 20px;
