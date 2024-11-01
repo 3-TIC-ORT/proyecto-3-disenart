@@ -79,6 +79,10 @@ html, body {
     margin-left: 29%;
 }
 
+.designList{
+    z-index: 7
+}
+
 .registerButton{
     border-radius: 15px;
     color: white;
