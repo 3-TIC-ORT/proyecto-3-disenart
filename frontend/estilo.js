@@ -29,20 +29,10 @@ bts.addEventListener("click", () => {
     if (username && password) {
         postData('registro', { username, password }, (response) => {
             if (response.ok) {
-                alert("Registro exitoso"); 
                 formregistro.style.display = "none";
                 formsecion.style.display = "block";
                 document.body.style.background = "none";
-
-            } else {
-                alert(response.message);
-               
-            }
-        });
-    } else {
-        alert("Completa todo ");
-    }
-});
+}});} });
 
 
 bti.addEventListener("click", () => {

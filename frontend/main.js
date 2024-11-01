@@ -38,6 +38,7 @@ const uploadImageCustomInput = document.getElementById('uploadImageCustom');
 const guardarImagenButton = document.getElementById("guardarImagenButton")
 const urlcompartido = document.getElementById("urlC")
 
+
 let loggedInUser = null;
 
 registerButton.addEventListener("click", () => {
@@ -52,8 +53,7 @@ registerButton.addEventListener("click", () => {
                 document.body.style.background = "none";
 
             } else {
-                alert(response.message);
-            
+                document.getElementById("tuParrafo").textContent = "Esta cuenta ya existe";
             }
         });
     } 
@@ -68,13 +68,14 @@ loginButton.addEventListener("click", () => {
             if (response.ok) {
                 loggedInUser = username;
             } else {
-                alert(response.message);
+                document.getElementById("miParrafo").textContent = "Esta cuenta no existe";
             }
         });
     } else {
         alert("Completa todo");
     }
 });
+
 
 loginButton.addEventListener("click", () => {
     const nombreu = loginUsernameInput.value;
@@ -107,17 +108,15 @@ saveDesignButton.addEventListener("click", () => {
     const positionOption = positionSelect.value;
     const selectedColor = colorLetraSelect.value; 
     const colorLinea = colorLineaSelect.value;
-    const formato = formatoSelect.value
-    const posicionTexto = posicionTextoSelect.value
-    const textoPersonalizado = textoPersonalizadoInput.value
-    const subtextoPersonalizado = subtextoPersonalizadoInput.value
-    const posicionsubTexto = posicionsubTextoSelect.value
-    const posicionfoto = posicionFOTOSelect.value
-    const urlcompartido = urlC.value
-    
+    const formato = formatoSelect.value;
+    const posicionTexto = posicionTextoSelect.value;
+    const textoPersonalizado = textoPersonalizadoInput.value;
+    const subtextoPersonalizado = subtextoPersonalizadoInput.value;
+    const posicionsubTexto = posicionsubTextoSelect.value;
+    const posicionfoto = posicionFOTOSelect.value;
+    const urlcompartido = urlC.value;
 
     if (loggedInUser) {
-        
         postData('guardarDiseno', { 
             username: loggedInUser, 
             color, 
@@ -137,7 +136,6 @@ saveDesignButton.addEventListener("click", () => {
             posicionfoto,
             fileName,
             urlcompartido
-
         }, (response) => {
             if (response.ok) {
                 alert("Diseño guardado con éxito");
@@ -150,34 +148,55 @@ saveDesignButton.addEventListener("click", () => {
     }
 });
 
-
-
 loadDesignsButton.addEventListener("click", () => {
     postData('obtenerDisenos', {}, (response) => {
         if (response.ok && response.diseños) {
-            designList.innerHTML = '';
+            designList.innerHTML = ''; 
             response.diseños.forEach(diseño => {
                 const li = document.createElement("li");
-                li.textContent = diseño.nombret;
+                li.textContent = diseño.nombretp;
+
+                const deleteButton = document.createElement("button");
+                
+                deleteButton.style.marginLeft = "10px"; 
+                deleteButton.style.cursor = "pointer";
+                deleteButton.style.backgroundImage = "url('../pantallasD/tacho.png')"; 
+                deleteButton.style.backgroundSize = "contain"; 
+                deleteButton.style.backgroundRepeat = "no-repeat"; 
+                deleteButton.style.border = "none"; 
+                deleteButton.style.height = "10px"; 
+                deleteButton.style.width = "10px"; 
+
+                deleteButton.addEventListener("click", (event) => {
+                    event.stopPropagation(); 
+                    const confirmation = confirm("¿Deseas borrar este diseño de la lista visual?");
+                    if (confirmation) {
+                        li.remove(); 
+                        alert("Diseño eliminado de la lista visual.");
+                    }
+                });
+
+                li.appendChild(deleteButton);
 
                 li.addEventListener("click", () => {
+                    
                     colorSelect.value = diseño.color;
                     materialSelect.value = diseño.material;
-                    nombreTrabajo.value = "Versión de: ";
-                    nombrePersonaInput.value = "pone tu nombre ";
-                    positionSelect.value = diseño.lugarn;
-                    colorLetraSelect.value = diseño.colorn;
-                    colorLineaSelect.value = diseño.colorl;
+                    nombreTrabajo.value = diseño.nombretp;
+                    nombrePersonaInput.value = diseño.nombrePersona;
+                    positionSelect.value = diseño.positionOption;
+                    colorLetraSelect.value = diseño.selectedColor;
+                    colorLineaSelect.value = diseño.colorLinea;
                     formatoSelect.value = diseño.formato;
-                    posicionTextoSelect.value = diseño.posicionT;
-                    textoPersonalizadoInput.value = diseño.texto;
+                    posicionTextoSelect.value = diseño.posicionTexto;
+                    textoPersonalizadoInput.value = diseño.textoPersonalizado;
                     talleSelect.value = diseño.talle;
-                    posicionsubTextoSelect.value = diseño.subtextop;
-                    subtextoPersonalizadoInput.value = diseño.subtextoi;
-                    posicionFOTOSelect.value = diseño.fotop;
-                    urlC.value = diseño.url;
+                    posicionsubTextoSelect.value = diseño.posicionsubTexto;
+                    subtextoPersonalizadoInput.value = diseño.subtextoPersonalizado;
+                    posicionFOTOSelect.value = diseño.posicionfoto;
+                    urlC.value = diseño.urlcompartido;
 
-                    const imagePath = `../imagenesa/${diseño.foto}`;
+                    const imagePath = `../imagenesa/${diseño.fileName}`;
                     const imageContainer = document.getElementById("imagencus");
                     imageContainer.innerHTML = ""; 
 
@@ -199,15 +218,6 @@ loadDesignsButton.addEventListener("click", () => {
                         imagenColor.style.display = "none";  
                     }
                 });
-
-                li.addEventListener("dblclick", () => {
-                    const confirmation = confirm("¿Deseas borrar este diseño de la lista?");
-                    if (confirmation) {
-                        li.remove();
-                        alert("Diseño eliminado de la lista.");
-                    }
-                });
-
                 designList.appendChild(li);
             });
         } else {
