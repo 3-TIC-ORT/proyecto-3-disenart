@@ -58,5 +58,25 @@
     "posicionfoto": "nada",
     "foto": "",
     "url": ""
+  },
+  {
+    "username": "hola",
+    "color": "negro",
+    "talle": "S",
+    "material": "algodon",
+    "nombretp": "Diseño 1",
+    "imagen": "../imagenes/buzonegro.png",
+    "nombrePersona": "Seba",
+    "lugarn": "arriba",
+    "colorn": "white",
+    "colorLinea": "blancol",
+    "formato": "medio",
+    "posicionTexto": "arriba-atras",
+    "texto": "PROMO",
+    "subtextoi": "2025",
+    "posicionsubTexto": "arriba-adelante",
+    "posicionfoto": "nada",
+    "foto": "",
+    "url": ""
   }
 ]
