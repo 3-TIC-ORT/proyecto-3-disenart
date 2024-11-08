@@ -29,16 +29,17 @@ function enviarRegistro(data) {
 function enviarLogin(data) {
     let usuarios = JSON.parse(fs.readFileSync('../data/usuarios.json', 'utf-8'));
 
-    for (let user of usuarios) {
-        if (user.username === data.username && user.password === data.password) {
-            console.log("Login exitoso");
-            return { ok: true, message: "listo" };
-        }
+    const usuarioEncontrado = usuarios.filter(user => user.username === data.username && user.password === data.password);
+
+    if (usuarioEncontrado.length > 0) {
+        console.log("Login exitoso");
+        return { ok: true, message: "listo" };
     }
 
     console.log("Crea una cuenta");
     return { ok: false, message: "Crea una cuenta" };
 }
+
 
 function guardarDiseno(data) {
     let diseños = JSON.parse(fs.readFileSync('../data/diseños.json', 'utf-8'));

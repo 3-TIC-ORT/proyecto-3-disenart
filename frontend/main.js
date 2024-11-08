@@ -184,30 +184,19 @@ loadDesignsButton.addEventListener("click", () => {
                     materialSelect.value = diseño.material;
                     nombreTrabajo.value = diseño.nombretp;
                     nombrePersonaInput.value = diseño.nombrePersona;
-                    positionSelect.value = diseño.positionOption;
-                    colorLetraSelect.value = diseño.selectedColor;
+                    positionSelect.value = diseño.lugarn;
+                    colorLetraSelect.value = diseño.colorn;
                     colorLineaSelect.value = diseño.colorLinea;
                     formatoSelect.value = diseño.formato;
                     posicionTextoSelect.value = diseño.posicionTexto;
-                    textoPersonalizadoInput.value = diseño.textoPersonalizado;
+                    textoPersonalizadoInput.value = diseño.texto;
                     talleSelect.value = diseño.talle;
                     posicionsubTextoSelect.value = diseño.posicionsubTexto;
-                    subtextoPersonalizadoInput.value = diseño.subtextoPersonalizado;
+                    subtextoPersonalizadoInput.value = diseño.subtextoi;
                     posicionFOTOSelect.value = diseño.posicionfoto;
-                    urlC.value = diseño.urlcompartido;
+                    urlC.value = diseño.url;
 
-                    const imagePath = `../imagenesa/${diseño.fileName}`;
-                    const imageContainer = document.getElementById("imagencus");
-                    imageContainer.innerHTML = ""; 
-
-                    const imageElement = document.createElement('img');
-                    imageElement.src = imagePath;
-                    imageElement.style.maxWidth = '100%'; 
-                    imageElement.style.height = 'auto';
-
-                    imageContainer.appendChild(imageElement);
-                    imageContainer.style.display = "block";
-
+                    verificarFoto(diseño);
                     const imageUrl = colorToImageMap[diseño.color];
                     
                     if (imageUrl) {
@@ -225,6 +214,22 @@ loadDesignsButton.addEventListener("click", () => {
         }
     });
 });
+
+function verificarFoto(diseño) {
+    const imageContainer = document.getElementById("imagencus");
+    imageContainer.innerHTML = ""; 
+
+    const imagePath = diseño.foto ? `../imagenesa/${diseño.foto}` : `../imagenesa/${diseño.url}`;
+    
+    const imageElement = document.createElement('img');
+    imageElement.src = imagePath;
+    imageElement.style.maxWidth = '100%'; 
+    imageElement.style.height = 'auto';
+
+    imageContainer.appendChild(imageElement);
+    imageContainer.style.display = "block";
+}
+
 
 uploadImageCustom.value = ''; 
 
