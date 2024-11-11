@@ -288,26 +288,40 @@ printDesignButton.addEventListener("click", () => {
     const talle = talleSelect.value;
     const material = materialSelect.value;
     const nombretp = nombreTrabajo.value;
-    const imageUrl = colorToImageMap[color]  || ""; 
+    const imageUrl = colorToImageMap[color] || ""; 
     const nombrePersona = nombrePersonaInput.value;  
+    const fileName = uploadedFileName || "";
     const positionOption = positionSelect.value;
     const selectedColor = colorLetraSelect.value; 
     const colorLinea = colorLineaSelect.value;
-    const formato = formatoSelect.value
-    const posicionTexto = posicionTextoSelect.value
-    const textoPersonalizado = textoPersonalizadoInput.value
-    const subtextoPersonalizado = subtextoPersonalizadoInput.value
-    const posicionsubTexto = posicionsubTextoSelect.value
-    const posicionfoto = posicionFOTOSelect.value
-    const fileName = uploadedFileName || "";
-    const urlcompartido = urlC.value
-    
-
-
-
+    const formato = formatoSelect.value;
+    const posicionTexto = posicionTextoSelect.value;
+    const textoPersonalizado = textoPersonalizadoInput.value;
+    const subtextoPersonalizado = subtextoPersonalizadoInput.value;
+    const posicionsubTexto = posicionsubTextoSelect.value;
+    const posicionfoto = posicionFOTOSelect.value;
+    const urlcompartido = urlC.value;
 
     if (loggedInUser) {
-        postData('mandarAImprimir', { username: loggedInUser, color, talle, material, nombretp, imageUrl, nombrePersona, positionOption, selectedColor, formato, colorLinea, posicionTexto, textoPersonalizado, posicionsubTexto, subtextoPersonalizado, posicionfoto, fileName, urlcompartido }, (response) => {
+        postData('mandarAImprimir', 
+            { username: loggedInUser, 
+            color, 
+            talle, 
+            material, 
+            nombretp, 
+            imageUrl, 
+            nombrePersona, 
+            positionOption,
+            selectedColor,
+            colorLinea,
+            formato,
+            posicionTexto,
+            textoPersonalizado,
+            posicionsubTexto,
+            subtextoPersonalizado,
+            posicionfoto,
+            fileName,
+            urlcompartido }, (response) => {
             if (response.ok) {
                 alert("Diseño enviado a imprimir");
             } else {
