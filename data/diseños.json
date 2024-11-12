@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "username": "maxi",
+    "color": "negro",
+    "talle": "S",
+    "material": "algodon",
+    "nombretp": "ort2024",
+    "imagen": "../imagenes/buzonegro.png",
+    "nombrePersona": "britos",
+    "lugarn": "arriba",
+    "colorn": "white",
+    "colorLinea": "blancol",
+    "formato": "liso",
+    "posicionTexto": "arriba-adelante",
+    "texto": "egresados",
+    "subtextoi": "xxiv",
+    "posicionsubTexto": "arriba-adelante",
+    "posicionfoto": "atras",
+    "foto": "sopa.png",
+    "url": ""
+  }
+]
